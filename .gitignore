@@ -9,23 +9,3 @@ build/
 *.cache
 
 
-PORT=8081
-DB="mongodb+srv://weboney_qr:IpN1bVdaRaRPjrGz@cluster0.e0veq1o.mongodb.net/subham?retryWrites=true&w=majority&appNam>SECRET_KEY = "T2s$w9qZ8@uG5#1!pR"
-AWS_REGION = "ap-south-1"
-AWS_BUCKET = "msmwebfiles"
-AWS_ACCESS_KEY = "AKIA57QECFCF4WZGDY5G"
-AWS_SECRET_ACCESS_KEY = "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"
-USER = "rajmadhan923@gmail.com"
-APP_PASS = "ehxj rssm moau idxb"
-T0_EMAIL="madhanr806@gmail.com"
-
-
-# client
-
-# VITE_API_BASE_URL="http://localhost:8000/api"
-# VITE_API_UPLOAD_BASE_URL="http://localhost:8000/api"
-# VITE_API_MAIL_URL="http://localhost:8000/api"
-
-VITE_API_BASE_URL="https://sailsubham.com/api"
-VITE_API_UPLOAD_BASE_URL="https://sailsubham.com/api"
-VITE_API_MAIL_URL="https://sailsubham.com/api"

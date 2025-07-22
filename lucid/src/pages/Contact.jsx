@@ -66,7 +66,7 @@ const Contact = () => {
     
     try {
       const response = await axios.post(
-        "https://lucid-server01.onrender.com/send-email",
+        "http://147.93.107.10:4000/send-email",
         formData
       );
       toast.success(response.data.message || "Message sent successfully!");
