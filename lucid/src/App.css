@@ -1,0 +1,133 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+body {
+  background-color: #ffff;
+  overflow-x: hidden;
+}
+
+.infrastructure__section {
+  background: url("assets/info_bg.webp") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.about__section {
+  padding-top: 5rem;
+  width: 100%;
+  height: 300px;
+  background: url("assets/employees/emp2.webp") no-repeat center 35%;
+  background-size: cover;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  position: relative;
+  z-index: 0;
+}
+
+.about__section::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: #00000067;
+  display: inline-block;
+  z-index: 10;
+}
+
+.Gallery__section {
+  padding-top: 5rem;
+  width: 100%;
+  height: 300px;
+  background: url("assets/employees/entrnace.webp") no-repeat center 70%;
+  background-size: cover;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  position: relative;
+  z-index: 0;
+}
+
+.Gallery__section::after {
+  
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: #00000067;
+  display: inline-block;
+  z-index: 10;
+}
+
+/* .product__section {
+  width: 100%;
+  height: 300px;
+  background: url("assets/image.png") no-repeat center center;
+  background-size: cover;
+
+  position: relative;
+  z-index: 0;
+  padding: 1rem;
+} */
+
+.individual__product__section {
+  padding-top: 5rem;
+  width: 100%;
+  height: 300px;
+  background: url("assets/bg_product.webp") no-repeat center 54%;
+  background-size: cover;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  position: relative;
+  z-index: 0;
+}
+
+.individual__product__section::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: #00000067;
+  display: inline-block;
+  z-index: 10;
+}
+
+
+/* about */
+.glass-card {
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgb(255, 255, 255) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: -1;
+}
+
+
+/* product section animation */
+
+@keyframes shine {
+  0% { transform: rotate(-20deg) translateX(-100%); }
+  20% { transform: rotate(-20deg) translateX(100%); }
+  100% { transform: rotate(-20deg) translateX(100%); }
+}
