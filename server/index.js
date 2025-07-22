@@ -241,7 +241,7 @@ app.use((err, req, res, next) => {
 
 // Start Server
 const PORT =  4000; // Changed default port to 4000
-const HOST = '0.0.0.0'; // Bind to all network interfaces
+const HOST = '147.93.107.10'; // Bind to all network interfaces
 
 app.listen(PORT, HOST, () => {
   console.log(`Server running on http://${HOST}:${PORT}`);
