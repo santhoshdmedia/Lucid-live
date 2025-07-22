@@ -238,6 +238,10 @@ app.use((err, req, res, next) => {
     ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
   });
 });
+// Add this before app.listen()
+app.get('/', (req, res) => {
+  res.send('Backend is running!');
+});
 
 // Start Server
 const PORT =  4000; // Changed default port to 4000
