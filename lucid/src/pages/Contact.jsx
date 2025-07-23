@@ -422,11 +422,11 @@ const Contact = () => {
               transition={{ delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <ReCAPTCHA
+              {/* <ReCAPTCHA
                 sitekey="6LfxpGorAAAAACoWJkFeQDsI6AiPSx9c7I2a9bPr"
                 onChange={(token) => setFormData({ ...formData, recaptcha: token })}
                 className="my-4"
-              />
+              /> */}
             </motion.div>
 
             <motion.div
