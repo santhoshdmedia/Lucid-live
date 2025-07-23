@@ -207,7 +207,7 @@ const Contact = () => {
                   </h3>
                   <a
                     href="mailto:lucidpetrochemical@gmail.com"
-                    className="text-blue-600 hover:text-blue-800 text-sm lg:text-base transition-colors"
+                    className="text-blue-600 hover:text-blue-800 text-[12.5px] lg:text-base transition-colors"
                   >
                     lucidpetrochemical@gmail.com
                   </a>
@@ -267,7 +267,7 @@ const Contact = () => {
                   { icon: FaLinkedin, url: "#" },
                   { icon: FaTwitter, url: "#" },
                   { icon: FaFacebook, url: "#" },
-                  { icon: FaInstagram, url: "#" },
+                  { icon: FaInstagram, url: "https://www.instagram.com/lucidpetrochemical/" },
                 ].map((social, index) => (
                   <motion.a
                     key={index}

@@ -317,7 +317,6 @@ export const Gallery = () => {
     setActiveCategory(category);
     setSelectedItem(null);
     setVisibleItems(12);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   if (isLoadingPage) {
