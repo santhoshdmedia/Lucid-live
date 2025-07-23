@@ -327,7 +327,7 @@ const Contact = () => {
                   id="name"
                   name="name"
                   className="w-full px-4 py-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-[#034a9a] focus:border-[#034a9a] transition focus:outline-none"
-                  placeholder="John Doe"
+                  placeholder="Name"
                   value={formData.name}
                   onChange={handleInputChange}
                   required
@@ -346,7 +346,7 @@ const Contact = () => {
                   id="email"
                   name="to"
                   className="w-full px-4 py-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-[#034a9a] focus:border-[#034a9a] transition focus:outline-none"
-                  placeholder="your.email@example.com"
+                  placeholder="your email"
                   value={formData.to}
                   onChange={handleInputChange}
                   required
@@ -365,7 +365,7 @@ const Contact = () => {
                   id="phone"
                   name="phone"
                   className="w-full px-4 py-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-[#034a9a] focus:border-[#034a9a] transition focus:outline-none"
-                  placeholder="+1 (555) 123-4567"
+                  placeholder="mobile number"
                   value={formData.phone}
                   onChange={handleInputChange}
                 />
