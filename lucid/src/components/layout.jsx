@@ -498,7 +498,7 @@ export const Footer = () => {
         </nav>
       </footer>
       <div className="bg-[#1482aa] text-[#ffffff] py-4">
-        <p className="text-center text-sm">
+        <p className="text-center lg:text-lg text-[10px] ">
           &copy; {new Date().getFullYear()} Lucid Industries Ltd. All rights
           reserved. Developed by{" "}
           <a
