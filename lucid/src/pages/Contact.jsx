@@ -423,7 +423,7 @@ const Contact = () => {
               viewport={{ once: true }}
             >
               <ReCAPTCHA
-                sitekey="6LcSsmorAAAAADUI1LduzQRI-pcwkRllJQki8sal"
+                sitekey="6LfxpGorAAAAACoWJkFeQDsI6AiPSx9c7I2a9bPr"
                 onChange={(token) => setFormData({ ...formData, recaptcha: token })}
                 className="my-4"
               />

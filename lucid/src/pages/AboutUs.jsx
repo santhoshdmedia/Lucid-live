@@ -205,7 +205,7 @@ const AboutUs = () => {
       >
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start ">
           {/* Owner Image */}
-          <motion.div variants={slideInFromLeft} className="w-full lg:w-1/2 sticky top-[100px]">
+          <motion.div variants={slideInFromLeft} className="w-full lg:w-1/2 relative lg:sticky top-[100px]">
             <motion.img
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}

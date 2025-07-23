@@ -196,7 +196,7 @@ const Home = () => {
           </div>
 
           {/* Navigation dots */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
+          <div className="hidden  absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 lg:flex gap-2">
             {slides.map((_, index) => (
               <button
                 key={index}

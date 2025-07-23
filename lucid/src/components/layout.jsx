@@ -506,7 +506,7 @@ export const Footer = () => {
             target="_blank"
             className="cursor-pointer"
           >
-            Dmedia
+            DMedia
           </a>
         </p>
       </div>
