@@ -203,9 +203,9 @@ const AboutUs = () => {
       <motion.section
         className="container mx-auto px-4 sm:px-6 py-16 lg:py-14 relative"
       >
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start ">
+        <div className="flex flex-col-reverse lg:flex-row gap-8 lg:gap-16 items-start ">
           {/* Owner Image */}
-          <motion.div variants={slideInFromLeft} className="w-full lg:w-1/2 relative lg:sticky top-[100px]">
+          <motion.div variants={slideInFromLeft} className="w-full lg:w-1/2 relative lg:sticky lg:top-[100px] top-0">
             <motion.img
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
@@ -261,7 +261,7 @@ const AboutUs = () => {
         initial="hidden"
         animate={controls}
         variants={containerVariants}
-        className="container mx-auto px-4 sm:px-6 py-16 lg:py-14"
+        className="container mx-auto px-4 sm:px-6 py-4 pt-0 lg:py-14"
       >
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center lg:items-start">
           {/* Text Content */}

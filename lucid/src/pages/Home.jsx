@@ -411,7 +411,7 @@ const Home = () => {
         <div className="object-cover w-full h-full absolute top-0 left-0 z-0 infrastructure__section" />
           <div className="absolute h-[100%] w-full top-0 left-0 bg-[rgba(0,0,0,0.52)]"></div>
         <div className="mx-auto  z-10 relative">
-          <h1 className="text-center lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full w-[80%] font-bold mx-auto text-[#ffffff] mb-[6rem] relative group ">
+          <h1 className="text-center lg:text-5xl md:text-4xl sm:text-4xl text-3xl lg:w-full md:w-full w-[80%] font-bold mx-auto text-[#ffffff] my-[3rem] lg:mt-0 relative group ">
             Our Infrastructure & Facilities
             {/* <span className="absolute bottom-[-30px] left-[50%] translate-x-[-50%] h-1.5 bg-[#84b5d3] w-1/6 transition-all duration-300 ease-in-out"></span> */}
           </h1>

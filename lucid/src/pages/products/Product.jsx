@@ -469,7 +469,7 @@ export const ProductLayout = ({
           {CommercialsimilarProducts.map((product) => (
             <motion.div
               key={product.id}
-              className="group relative h-[32rem] rounded-3xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 shadow-2xl hover:shadow-3xl border-2 border-white/20"
+              className="group relative h-fit lg:h-[28rem] rounded-3xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 shadow-2xl hover:shadow-3xl border-2 border-white/20"
               initial="rest"
               whileHover="hover"
               variants={cardVariants}
@@ -1013,7 +1013,7 @@ export const Gearoil = ({
               {category.products.map((product) => (
                 <motion.div
                   key={product.id}
-                  className={`group relative ${productCardOptions.heightClass} rounded-xl overflow-hidden bg-gradient-to-br ${productCardOptions.background} shadow-lg hover:shadow-xl border border-gray-200`}
+                  className={`group relative ${productCardOptions.heightClass} rounded-xl overflow-hidden bg-gradient-to-br ${productCardOptions.background} shadow-lg hover:shadow-xl border border-gray-200 h-fit lg:h-[28rem]`}
                   initial="rest"
                   whileHover="hover"
                   variants={cardVariants}
@@ -1527,7 +1527,7 @@ export const HydraulicOilProductLayout = ({
               {category.products.map((product) => (
                 <motion.div
                   key={product.id}
-                  className={`group relative ${productCardOptions.heightClass} rounded-xl overflow-hidden bg-gradient-to-br ${productCardOptions.background} shadow-lg hover:shadow-xl border border-gray-200 w-full  lg:w-[540px]`}
+                  className={`group relative ${productCardOptions.heightClass} rounded-xl overflow-hidden bg-gradient-to-br ${productCardOptions.background} shadow-lg hover:shadow-xl border border-gray-200 w-full h-fit lg:h-[34rem] lg:w-[540px]`}
                   initial="rest"
                   whileHover="hover"
                   variants={cardVariants}
@@ -2063,7 +2063,7 @@ export const AutomotiveGreaseProductLayout = ({
               {category.products.map((product) => (
                 <motion.div
                   key={product.id}
-                  className={`group relative ${productCardOptions.heightClass} rounded-xl overflow-hidden bg-gradient-to-br ${productCardOptions.background} shadow-lg hover:shadow-xl border border-gray-200`}
+                  className={`group relative ${productCardOptions.heightClass} rounded-xl overflow-hidden bg-gradient-to-br ${productCardOptions.background} shadow-lg hover:shadow-xl border border-gray-200 h-fit lg:h-[24rem]`}
                   initial="rest"
                   whileHover="hover"
                   variants={cardVariants}
