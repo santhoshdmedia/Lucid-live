@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router";
 import { AppBreadcrumbs } from "../../components/layout";
+import { Helmet } from "react-helmet-async";
 // import './Product.css'
 
 import engineOilProduct from "../../assets/product/productTwo.webp";
@@ -48,6 +49,11 @@ export const ProductLayout = ({
   // Header props
   title = "Automotive Engine Oil",
   description = "Premium quality lubricants for all your needs",
+  
+  metatitle = "Automotive Engine Oil | Lucid Petrochemical – Superior Lubrication Solutions",
+  meta_Description = "Discover Lucid Petrochemical’s high‑performance automotive engine oils—engineered for longevity, friction reduction, and optimal protection in diesel and petrol engines.",
+  meta_Keywords = "Lucid Petrochemical engine oil, automotive engine oil India, high-performance lubricants, diesel engine oil, petrol engine oil, engine protection chemicals, synthetic motor oil, vehicle lubrication solutions",
+
 
   // Main content props
   mainTitle = "Premium Automotive Engine Oils",
@@ -256,6 +262,18 @@ export const ProductLayout = ({
   }
 
   return (
+    <>
+    <helmet>
+      <title>{metatitle}</title>
+          <meta 
+            name="description" 
+            content={`${meta_Description}`}
+          />
+          <meta 
+            name="keywords" 
+            content={`${meta_Keywords}`} 
+          />
+    </helmet>
     <motion.div
       className="relative overflow-hidden min-h-screen"
       initial="hidden"
@@ -597,6 +615,7 @@ export const ProductLayout = ({
         {/* 4 Stroke Engine Oil */}
       </motion.section>
     </motion.div>
+    </>
   );
 };
 
@@ -604,6 +623,10 @@ export const Gearoil = ({
   // Header props
   title = "Gear Oil",
   description = "Premium quality lubricants for all your needs",
+
+  metatitle = "Gear Oil | Lucid Petrochemical – High‑Performance Gear Lubricants",
+  meta_Description = "Explore Lucid Petrochemical’s premium gear oil solutions — engineered for optimal protection, thermal stability, and wear resistance in industrial gears and drivetrain systems.",
+  meta_Keywords = "Lucid Petrochemical gear oil, high-performance gear lubricants, industrial gear oil, extreme pressure gear oil, drivetrain protection, thermal stability lubricants, anti-wear gear oil, enclosed gear drives, petrochemical gear oil India",
 
   // Main content props
   mainTitle = "Gear Oils",
@@ -801,6 +824,11 @@ export const Gearoil = ({
       animate="visible"
       variants={containerVariants}
     >
+      <Helmet>
+        <title>{metatitle}</title>
+        <meta name="description" content={meta_Description} />
+        <meta name="keywords" content={meta_Keywords} />
+      </Helmet>
       {/* Hero Header */}
       <motion.header
         className="w-full py-12 individual__product__section"
@@ -1127,6 +1155,10 @@ export const HydraulicOilProductLayout = ({
   title = "Hydraulic Oil",
   description = "Premium quality lubricants for all your needs",
 
+  metatitle = "Hydraulic Oil | Lucid Petrochemical – Durable & High‑Performance Fluids",
+  meta_Description = "Explore Lucid Petrochemical’s high-performance hydraulic oil—designed for superior lubrication, thermal stability, and wear protection in critical industrial systems.",
+  meta_Keywords = "Lucid Petrochemical hydraulic oil, high-performance hydraulic fluids, anti-wear hydraulic oil, thermal stability hydraulic fluid, industrial hydraulic oil India, power transmission lubricant, hydraulic system protection",
+
   // Main content props
   mainTitle = "Hydraulic Oils",
   companyName = "Lucid Petro chemical",
@@ -1314,6 +1346,11 @@ export const HydraulicOilProductLayout = ({
       animate="visible"
       variants={containerVariants}
     >
+      <Helmet>
+        <title>{metatitle}</title>
+        <meta name="description" content={meta_Description} />
+        <meta name="keywords" content={meta_Keywords} />
+      </Helmet>
       {/* Hero Header */}
       <motion.header
         className="w-full py-12 individual__product__section"
@@ -1642,6 +1679,10 @@ export const AutomotiveGreaseProductLayout = ({
   title = "Automotive Grease",
   description = "High-performance lubricants for all automotive applications",
 
+  metatitle = "Automotive Grease | Lucid Petrochemical – High-Performance Grease for Vehicles",
+  meta_Description = "Lucid Petrochemical offers high-performance automotive grease designed for superior lubrication, wear resistance, and protection in all vehicle components and conditions.",
+  meta_Keywords = "Lucid Petrochemical automotive grease, vehicle grease India, high-performance grease, wheel bearing grease, chassis grease, multipurpose automotive lubricants, heavy-duty grease, vehicle maintenance grease, grease manufacturers India",
+
   // Main content props
   mainTitle = "Premium Automotive Greases",
   companyName = "Lucid Petrochemical",
@@ -1851,6 +1892,12 @@ export const AutomotiveGreaseProductLayout = ({
       animate="visible"
       variants={containerVariants}
     >
+      <Helmet>
+        <title>{metatitle}</title>
+        <meta name="description" content={meta_Description} />
+        <meta name="keywords" content={meta_Keywords} />
+      </Helmet>
+
       {/* Hero Header */}
       <motion.header
         className="w-full py-12 individual__product__section"

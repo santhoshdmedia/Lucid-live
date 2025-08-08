@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from 'react-helmet-async';
 
 // Employee images
 import emp1 from "../assets/employees/emp1.webp";
@@ -329,6 +330,18 @@ export const Gallery = () => {
       onKeyDown={handleKeyDown}
       tabIndex={0}
     >
+      {/* Add Helmet section at the top of your component */}
+      <Helmet>
+        <title>Infrastructure | Lucid Petrochemical’s State‑of‑the‑Art Manufacturing Facility</title>
+          <meta 
+            name="description" 
+            content="Discover Lucid Petrochemical’s cutting‑edge infrastructure—a modern manufacturing facility engineered to support critical energy sectors like diesel engines, industrial boilers, and power plants." 
+          />
+          <meta 
+            name="keywords" 
+            content="Lucid Petrochemical infrastructure, modern chemical manufacturing plant, state‑of‑the‑art facility, diesel engine chemical supplier, industrial boiler chemicals, power plant chemicals, petrochemical infrastructure India, energy sector chemicals" 
+          />
+      </Helmet>
       {/* Header Section */}
       <header className="w-full py-10 Gallery__section relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-50">

@@ -14,6 +14,7 @@ import slide_three from "../assets/slides/slide_3.jpg";
 import slide_four from "../assets/slides/slide_4.jpg";
 import slide_five from "../assets/slides/slide_5.jpg";
 import { LucidLoader } from "../components/layout";
+import { Helmet } from 'react-helmet-async';
 
 import {
   FiThumbsUp,
@@ -139,6 +140,18 @@ const Home = () => {
 
   return (
     <div className="">
+      {/* Add Helmet section at the top of your component */}
+      <Helmet>
+        <title>Lucid Petrochemical | Petrochemical Manufacturer in India</title>
+        <meta 
+          name="description" 
+          content="Lucid Petrochemical is a leading petrochemical manufacturer in India, delivering high-quality chemical solutions with a focus on safety, sustainability, and innovation." 
+        />
+        <meta 
+          name="keywords" 
+          content="lucid petrochemical, petrochemical manufacturer India, industrial chemicals, chemical suppliers Tamil Nadu, base oils, solvents, lubricants, chemical plant, sustainable petrochemicals, petrochemical industry India" 
+        />
+      </Helmet>
       {/* slider */}
       <div className="relative">
         <div className="carousel w-full lg:h-[91.5vh] md:h-[70vh] h-[30vh] relative overflow-hidden">

@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { AppBreadcrumbs } from "../components/layout";
 import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Helmet } from 'react-helmet-async';
 
 // Animation variants
 const containerVariants = {
@@ -99,6 +100,18 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+      {/* Add Helmet section at the top of your component */}
+      <Helmet>
+        <title>Contact Us | Lucid Petrochemical – Get in Touch for Petrochemical Solutions</title>
+          <meta 
+            name="description" 
+            content="Reach out to Lucid Petrochemical for inquiries, orders, and partnerships. Connect with our team of experts for premium petrochemical products and services." 
+          />
+          <meta 
+            name="keywords" 
+            content="Lucid Petrochemical contact, petrochemical enquiries, chemical products enquiries, get in touch Lucid, petrochemical supplier contact India, chemical services contact" 
+          />
+      </Helmet>
       <motion.header
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

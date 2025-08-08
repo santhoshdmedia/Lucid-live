@@ -18,6 +18,7 @@ import Lab from "../assets/factory/fac6.webp";
 import iso_9001 from "../assets/certificates/iso9001.png"
 import iso_14001 from "../assets/certificates/iso140001.png"
 import ohsas from "../assets/certificates/ohsas18.png"
+import { Helmet } from 'react-helmet-async';
 
 const industries = [
   {
@@ -179,6 +180,18 @@ const AboutUs = () => {
 
   return (
     <div className="bg-white">
+      {/* Add Helmet section at the top of your component */}
+      <Helmet>
+        <title>About Us | Lucid Petrochemical - Advanced Manufacturing for Energy Industries</title>
+          <meta 
+            name="description" 
+            content="Learn about Lucid Petrochemical's state-of-the-art manufacturing facility, serving key industries like diesel engines, industrial boilers, and power plants." 
+          />
+          <meta 
+            name="keywords" 
+            content="lucid petrochemical about us, chemical manufacturer India, petrochemical plant Tamil Nadu, energy industry chemicals, diesel engine chemicals, industrial boiler chemical supplier, power plant petrochemicals, advanced chemical manufacturing" 
+          />
+      </Helmet>
       {/* Hero Section */}
       <motion.header
         initial={{ opacity: 0 }}
