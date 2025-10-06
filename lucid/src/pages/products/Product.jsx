@@ -439,6 +439,7 @@ export const ProductLayout = ({
         </div>
       )}
 
+
       {/* Product image */}
       <motion.div className="relative h-48 overflow-hidden">
         <motion.img
