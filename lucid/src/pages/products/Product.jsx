@@ -45,19 +45,20 @@ const contentVariants = {
   },
 };
 
+
+
 export const ProductLayout = ({
   // Header props
-  title = "Automotive Engine Oil",
+  title = "Engine Oil",
   description = "Premium quality lubricants for all your needs",
-  
-  metatitle = "Automotive Engine Oil | Lucid Petrochemical – Superior Lubrication Solutions",
-  meta_Description = "Discover Lucid Petrochemical’s high‑performance automotive engine oils—engineered for longevity, friction reduction, and optimal protection in diesel and petrol engines.",
-  meta_Keywords = "Lucid Petrochemical engine oil, automotive engine oil India, high-performance lubricants, diesel engine oil, petrol engine oil, engine protection chemicals, synthetic motor oil, vehicle lubrication solutions",
 
+  metatitle = "Automotive Engine Oil | Lucid Petrochemical – Superior Lubrication Solutions",
+  meta_Description = "Discover Lucid Petrochemical's high‑performance automotive engine oils—engineered for longevity, friction reduction, and optimal protection in diesel and petrol engines.",
+  meta_Keywords = "Lucid Petrochemical engine oil, automotive engine oil India, high-performance lubricants, diesel engine oil, petrol engine oil, engine protection chemicals, synthetic motor oil, vehicle lubrication solutions",
 
   // Main content props
   mainTitle = "Premium Automotive Engine Oils",
-  companyName = "Lucid Petro chemocal",
+  companyName = "Lucid Petrochemical",
   companyNameHighlight = true,
 
   // Paragraphs
@@ -81,8 +82,7 @@ export const ProductLayout = ({
     src: engineOilProduct,
     alt: "Lucid Engine Oil in Application",
     overlayTitle: "Engineered for Excellence",
-    overlayText:
-      "Meeting global standards including API SP/SN, ACEA A3/B4, and OEM specifications",
+    overlayText: "Meeting global standards including API SP/SN, ACEA A3/B4, and OEM specifications",
     certifications: ["API SP", "ACEA A3/B4", "JASO MA2", "MB-Approval 229.5"],
   },
 
@@ -119,73 +119,429 @@ export const ProductLayout = ({
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
 
-  const CommercialsimilarProducts = [
-    {
-      id: 1,
-      productName: "LUCID SUPER 20W-40 (API CF-4)",
-      productImg: engineOilProduct,
-      productDescription:
-        "Specially formulated for heavy-duty diesel engines, this oil provides superior protection against wear and deposits. Its advanced additive package ensures optimal performance in extreme temperatures and extended drain intervals.",
-      isFeatured: true,
-      badge: "commercial",
-    },
-    {
-      id: 2,
-      productName: "LUCID TURBO 15W-40 (API CI-4)",
-      productImg: engineOilProduct,
-      productDescription:
-        "Engineered for turbocharged diesel engines, this high-performance oil reduces turbocharger deposits while providing excellent soot control. Maintains viscosity stability under severe operating conditions.",
-      isFeatured: true,
-      badge: "commercial",
-    },
-    {
-      id: 3,
-      productName: "LUCID ULTIMATE 15W-40 (API-CH-4)",
-      productImg: engineOilProduct,
-      productDescription:
-        "Premium formulation designed for modern diesel engines with EGR systems. Provides enhanced protection against acid corrosion and maintains engine cleanliness even with high sulfur fuels.",
-      isFeatured: true,
-      badge: "commercial",
-    },
-    {
-      id: 4,
-      productName: "LUCID EXTREME 15W-40 (API-CF-4)",
-      productImg: engineOilProduct,
-      productDescription:
-        "High-quality diesel engine oil that excels in both high and low temperature operations. Its robust formulation prevents oil breakdown in severe service applications.",
-      isFeatured: true,
-      badge: "commercial",
-    },
-    {
-      id: 5,
-      productName: "Lucid Extreme 20W50",
-      productImg: engineOilProduct,
-      productDescription:
-        "Specially blended for high-performance 4-stroke engines, this oil provides superior film strength and thermal stability. Ideal for engines operating under heavy loads or in hot climates.",
-      isFeatured: true,
-      badge: "Four stroke",
-    },
-    {
-      id: 6,
-      productName: "Lucid Super 20W40",
-      productImg: engineOilProduct,
-      productDescription:
-        "Advanced 4-stroke engine oil with enhanced anti-wear additives for improved engine protection. Maintains excellent lubrication properties throughout the oil change interval.",
-      isFeatured: true,
-      badge: "Four stroke",
-    },
-  ];
+  // Product data organized by categories
+  const productCategories = {
+    motorcycle: [
+      {
+        id: 1,
+        productName: "Lucid 4T Eco SAE 20W40 | API SL | JASO MA2",
+        productImg: engineOilProduct,
+        productDescription: "Formulated with advanced technology for 4-stroke motorcycles, Lucid 4T Eco delivers superior engine protection, smooth clutch performance, and excellent gear shifting. Specially designed for 100cc bikes and beyond.",
+        features: [
+          "Enhanced Engine Life – Protects against wear and deposits",
+          "Smooth Clutch Operation – Wet clutch compatibility",
+          "Thermal Stability – Reliable performance at high temperatures",
+          "Fuel Efficiency – Balanced formulation for eco-friendly riding"
+        ],
+        recommendedFor: "100cc Motorcycles – India's Top-Selling Segment",
+        badge: "MCO",
+        gradient: "from-green-500 to-blue-600"
+      },
+      {
+        id: 2,
+        productName: "Lucid 4T Pro – SAE 20W40 | API SN | JASO MA2",
+        productImg: engineOilProduct,
+        productDescription: "Premium 4-stroke motorcycle engine oil specially designed for modern 125cc and above bikes. Blended with advanced additives for superior protection and long-lasting engine life.",
+        features: [
+          "Strong anti-wear protection for vital engine parts",
+          "Smooth gear shifting with wet clutch performance",
+          "Maintains viscosity under high temperature and heavy load",
+          "Keeps engine clean from sludge and deposits"
+        ],
+        recommendedFor: "125cc+ Motorcycles – The Premium Grade",
+        badge: "MCO",
+        gradient: "from-blue-500 to-purple-600"
+      },
+      {
+        id: 3,
+        productName: "Lucid 4T Nario – SAE 10W30 | API SN | JASO MB",
+        productImg: engineOilProduct,
+        productDescription: "Premium scooter engine oil thoughtfully crafted for modern automatic scooters. Delivers smooth performance, reliable protection, and effortless riding comfort.",
+        features: [
+          "Specially made for scooters requiring JASO MB grade",
+          "Smooth acceleration and graceful performance in city traffic",
+          "Protects against wear, heat, and deposits",
+          "Clean-running formula for fresh and efficient engine"
+        ],
+        recommendedFor: "Automatic Scooters – Power Meets Grace",
+        badge: "MCO",
+        gradient: "from-pink-500 to-red-600"
+      },
+      {
+        id: 4,
+        productName: "Lucid 4T Dyno – SAE 10W30 | API SM | JASO MA2",
+        productImg: engineOilProduct,
+        productDescription: "Engineered for riders who demand both power and endurance. With advanced additive chemistry, it delivers smooth performance and strong protection.",
+        features: [
+          "Smooth clutch performance & precise gear shifting",
+          "High shear stability for reliable protection under high RPMs",
+          "Fights wear, heat, and sludge build-up",
+          "Designed for dynamic riding conditions"
+        ],
+        recommendedFor: "125cc-150cc Commuter & Sporty Bikes",
+        badge: "MCO",
+        gradient: "from-orange-500 to-yellow-600"
+      },
+      {
+        id: 5,
+        productName: "Lucid 4T Ignito SAE 15W50 API SN JASO MA2",
+        productImg: engineOilProduct,
+        productDescription: "High-performance 4-stroke motorcycle engine oil for riders who demand power, protection, and reliability. Ensures smooth performance even under extreme conditions.",
+        features: [
+          "Superior engine & clutch protection",
+          "Smooth gear shifts (JASO MA2 certified)",
+          "High thermal stability & cleanliness",
+          "Reliable performance in all conditions"
+        ],
+        recommendedFor: "All modern 4-stroke motorcycles & performance biking",
+        badge: "MCO",
+        gradient: "from-red-500 to-orange-600"
+      }
+    ],
+    lightTransport: [
+      {
+        id: 1,
+        productName: "Lucid Carrio Pro SAE 15W40 API CH-4",
+        technology: "Powered with TSP Technology – Torque • Shield • Performance",
+        productImg: engineOilProduct,
+        productDescription: "High-performance diesel engine oil engineered for light transport vehicles that demand durability, protection, and consistent power delivery.",
+        features: [
+          "Torque Boost: Optimized lubrication for superior pulling power & engine response",
+          "Shield Protection: Strong wear defence for pistons, cylinders & critical engine parts",
+          "Performance Reliability: Maintains viscosity under tough stop-and-go driving",
+          "Engine Cleanliness: Minimizes deposits & sludge for smooth operation"
+        ],
+        recommendedFor: "Perfect for both Cargo and Passenger Light Transport Vehicles",
+        badge: "TRANSPORT",
+        gradient: "from-blue-600 to-indigo-700"
+      },
+      {
+        id: 2,
+        productName: "Lucid Carrio Dyno SAE 15W40 API CI-4 Plus",
+        technology: "Powered with TSP Technology – Torque • Shield • Performance",
+        productImg: engineOilProduct,
+        productDescription: "Advanced diesel engine oil designed for modern high-speed engines. Delivers perfect balance of power, protection, and endurance.",
+        features: [
+          "Superior soot handling for cleaner engines",
+          "Enhanced wear protection for longer life",
+          "Consistent performance under heavy loads",
+          "Supports extended oil drain intervals"
+        ],
+        recommendedFor: "Light commercial vehicles requiring SAE 15W40, API CI-4 Plus",
+        badge: "TRANSPORT",
+        gradient: "from-indigo-600 to-purple-700"
+      }
+    ],
+    passengerCar: [
+      {
+        id: 1,
+        productName: "Lucid Cruzo Eco SAE 15W40 API CH-4/SL",
+        tagline: "Balanced Power. Eco Performance.",
+        productImg: engineOilProduct,
+        productDescription: "Multi-grade engine oil specially formulated for both diesel and petrol engines, offering reliable performance across wide operating conditions.",
+        features: [
+          "Strong wear & deposit protection",
+          "Excellent soot & sludge control",
+          "Reliable thermal & oxidation stability",
+          "Smooth performance for both diesel & petrol engines"
+        ],
+        recommendedFor: "Light commercial vehicles, SUVs, and passenger cars requiring SAE 15W40, API CH-4/SL",
+        badge: "PCMO",
+        gradient: "from-green-600 to-blue-700"
+      },
+      {
+        id: 2,
+        productName: "Lucid Cruzo Pro SAE 5W30 API SN / ACEA A3/B3",
+        technology: "Powered with Aura Shield Technology™",
+        productImg: engineOilProduct,
+        productDescription: "Premium passenger car motor oil engineered to deliver fabulous new-age protection and clarity for modern petrol and light diesel engines.",
+        features: [
+          "Aura Shield Protection – Invisible layer guarding against wear & deposits",
+          "Cleaner Engines – Reduces sludge and soot for longer engine life",
+          "Smoother Performance – Reliable power delivery in all driving conditions",
+          "All-Round Endurance – Consistent protection from city traffic to highways"
+        ],
+        recommendedFor: "Passenger cars & SUVs requiring SAE 5W30, API SN, ACEA A3/B3",
+        badge: "PCMO",
+        gradient: "from-purple-600 to-pink-700"
+      },
+      {
+        id: 3,
+        productName: "Lucid Cruzo Dyno SAE 5W40 API SN / ACEA A3/B3",
+        technology: "Powered with Aura Shield Technology™",
+        productImg: engineOilProduct,
+        productDescription: "High-performance passenger car motor oil crafted for auto enthusiasts who demand power, precision, and protection.",
+        features: [
+          "Aura Shield Protection – Advanced defense against wear, sludge & deposits",
+          "High-Performance Formula – Strong thermal stability for powerful engines",
+          "Engine Cleanliness – Reduces deposits for smoother running",
+          "Endurance Guaranteed – Consistent performance in city traffic & highways"
+        ],
+        recommendedFor: "Passenger cars & SUVs requiring SAE 5W40, API SN, ACEA A3/B3",
+        badge: "PCMO",
+        gradient: "from-orange-600 to-red-700"
+      }
+    ],
+    agricultural: [
+      {
+        id: 1,
+        productName: "Lucid Engino Pro SAE 20W40 API CF-4",
+        tagline: "Reliable Power for Tractors & Stationary Engines",
+        productImg: engineOilProduct,
+        productDescription: "Robust diesel engine oil designed specifically for tractors and stationary engines operating under demanding field conditions.",
+        features: [
+          "Strong wear protection for extended engine life",
+          "Reliable torque delivery in tractors and stationary setups",
+          "Enhanced soot & deposit control for cleaner operation",
+          "Excellent oxidation stability for long working hours"
+        ],
+        recommendedFor: "Agricultural tractors, harvesters & farm equipment, Stationary diesel engines",
+        packs: "1L, 5L, 7.5L, 15L, 210L drum",
+        badge: "AGRI",
+        gradient: "from-yellow-600 to-orange-700"
+      },
+      {
+        id: 2,
+        productName: "Lucid Engino Agro SAE 15W40 API CH-4",
+        tagline: "Powering Agriculture with Reliable Protection",
+        productImg: engineOilProduct,
+        productDescription: "Heavy-duty diesel engine oil designed specifically for agricultural machinery operating in harsh field conditions.",
+        features: [
+          "Strong wear & tear protection for long engine life",
+          "Effective soot & deposit control for cleaner operation",
+          "Reliable performance in dusty & rugged fields",
+          "Excellent oxidation stability for extended oil life"
+        ],
+        recommendedFor: "Tractors, harvesters & agricultural machinery, Diesel engines requiring SAE 15W40, API CH-4",
+        packs: "1L, 5L, 7.5L, 15L, 210L drum",
+        badge: "AGRI",
+        gradient: "from-green-600 to-teal-700"
+      },
+      {
+        id: 3,
+        productName: "Lucid Engino Tracto – Tractor Transmission Oil",
+        tagline: "Smooth Transmission. Reliable Braking. Lasting Protection.",
+        productImg: engineOilProduct,
+        productDescription: "Specialized transmission oil formulated for tractors with wet brake systems, clutches, and hydraulic transmissions.",
+        features: [
+          "Wet Brake Protection – Reduces noise & chatter, ensures smooth braking",
+          "Smooth Transmission Performance – Stable friction for gear & clutch operation",
+          "Hydraulic System Compatibility – Reliable performance across hydraulics & PTO units",
+          "Strong Anti-Wear Properties – Protects gears, bearings & moving parts"
+        ],
+        recommendedFor: "Tractors & agricultural machinery with wet brakes, clutches, and hydraulic systems",
+        packs: "5L, 7.5L, 15L, 210L drum",
+        badge: "AGRI",
+        gradient: "from-blue-600 to-indigo-700"
+      }
+    ],
+    heavyCommercial: [
+      {
+        id: 1,
+        productName: "Lucid Haulo Pro SAE 15W40 API CH-4",
+        tagline: "Heavy-Duty Protection for Haulage & Transport Fleets",
+        productImg: engineOilProduct,
+        productDescription: "Robust diesel engine oil designed for long-haul trucks, buses, and heavy-duty commercial vehicles.",
+        features: [
+          "Strong wear protection for long engine life",
+          "Effective soot & sludge control for cleaner operation",
+          "Excellent oxidation stability for extended drains",
+          "Consistent performance under high load & long hours"
+        ],
+        recommendedFor: "Trucks, buses & heavy commercial vehicles, Long-haul & fleet applications",
+        packs: "1L, 5L, 7.5L, 15L, 210L drum",
+        badge: "HCV",
+        gradient: "from-gray-600 to-blue-700"
+      },
+      {
+        id: 2,
+        productName: "Lucid Haulo Dyno SAE 15W40 API CI-4 Plus",
+        tagline: "Premium Power for Modern Heavy-Duty Engines",
+        productImg: engineOilProduct,
+        productDescription: "High-performance diesel engine oil engineered for modern heavy-duty trucks, buses, and fleet vehicles.",
+        features: [
+          "Advanced Wear Protection – Guards pistons, rings & vital parts under heavy stress",
+          "Superior Soot Handling – Prevents sludge, deposits & viscosity increase",
+          "High Thermal & Oxidation Stability – Stays strong in long, high-heat operations",
+          "Extended Drain Performance – Longer oil life for fleet efficiency"
+        ],
+        recommendedFor: "Heavy-duty trucks, buses & fleet vehicles requiring API CI-4 Plus",
+        packs: "1L, 5L, 7.5L, 15L, 210L drum",
+        badge: "HCV",
+        gradient: "from-red-600 to-orange-700"
+      },
+      {
+        id: 3,
+        productName: "Lucid HauloMagno SAE 10W40 API CJ-4",
+        tagline: "Next-Generation Protection for Advanced Heavy-Duty Engines",
+        productImg: engineOilProduct,
+        productDescription: "Premium heavy-duty diesel engine oil engineered for modern BS-IV/BS-VI compliant trucks and buses.",
+        features: [
+          "CJ-4 Grade Performance – Designed for low-emission, high-output diesel engines",
+          "Stronger Wear & Corrosion Protection – Safeguards critical components under stress",
+          "Advanced Soot & Deposit Control – Keeps engines cleaner, boosting efficiency",
+          "Excellent Oxidation & Shear Stability – Consistent performance in long-haul use"
+        ],
+        recommendedFor: "Heavy-duty commercial vehicles requiring API CJ-4, Modern BS-IV/BS-VI trucks",
+        packs: "1L, 5L, 7.5L, 15L, 210L drum",
+        badge: "HCV",
+        gradient: "from-purple-600 to-pink-700"
+      }
+    ]
+  };
 
-  const FourStrokesimilarProducts = [
-    {
-      id: 1,
-      productName: "Lucid Extreme 20W50",
-      productImg: engineOilProduct,
-      productDescription:
-        "The two main types of lubricants are oils and greases. Both aim to lubricate equipment and prevent damage through metal to metal contact. However, there are a few key differences in how they are used.",
-      isFeatured: true,
-    },
-  ];
+  // Product Card Component
+  const ProductCard = ({ product }) => (
+    <motion.div
+      className="group relative h-full flex flex-col justify-between rounded-3xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 shadow-2xl hover:shadow-3xl border-2 border-white/20"
+      initial="rest"
+      whileHover="hover"
+      variants={cardVariants}
+      layout
+    >
+      {/* Background effects */}
+      {backgroundEffects && (
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 opacity-30">
+            {[...Array(8)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full bg-blue-500/20"
+                initial={{
+                  x: `${Math.random() * 100}%`,
+                  y: `${Math.random() * 100}%`,
+                  scale: Math.random() * 0.5 + 0.5,
+                }}
+                animate={{
+                  x: [
+                    `${Math.random() * 100}%`,
+                    `${Math.random() * 100}%`,
+                  ],
+                  y: [
+                    `${Math.random() * 100}%`,
+                    `${Math.random() * 100}%`,
+                  ],
+                }}
+                transition={{
+                  duration: Math.random() * 20 + 10,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "linear",
+                }}
+                style={{
+                  width: `${Math.random() * 200 + 100}px`,
+                  height: `${Math.random() * 200 + 100}px`,
+                  filter: "blur(40px)",
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Product image */}
+      <motion.div className="relative h-48 overflow-hidden">
+        <motion.img
+          src={product.productImg || engineOilProduct}
+          className="w-full h-full object-contain p-4"
+          alt={product.productName}
+          loading="lazy"
+          transition={{ duration: 0.5 }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent pointer-events-none" />
+      </motion.div>
+
+      {/* Product info */}
+      <motion.div className="relative p-6 flex flex-col justify-between bg-white/80 backdrop-blur-sm">
+        <div>
+          <motion.h3
+            className="text-xl font-extrabold text-[#005b96] mb-3"
+            initial={{ textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
+            whileHover={{
+              textShadow: "0 5px 15px rgba(0,0,0,0.2)",
+              transition: { duration: 0.3 },
+            }}
+          >
+            {product.productName}
+          </motion.h3>
+
+          {product.technology && (
+            <motion.p className="text-sm text-[#034a9a] font-semibold mb-2">
+              {product.technology}
+            </motion.p>
+          )}
+
+          {product.tagline && (
+            <motion.p className="text-sm text-[#6497b1] italic mb-3">
+              {product.tagline}
+            </motion.p>
+          )}
+
+          <motion.p
+            className="text-[#03396c] mb-4 text-sm leading-relaxed"
+            whileHover={{
+              color: "#6497b1",
+              transition: { duration: 0.2 },
+            }}
+          >
+            {product.productDescription}
+          </motion.p>
+
+          {/* Features List */}
+          <motion.ul className="space-y-2 mb-4">
+            {product.features && product.features.slice(0, 3).map((feature, index) => (
+              <motion.li
+                key={index}
+                className="flex items-start text-xs text-[#005b96]"
+                whileHover={{ x: 5 }}
+              >
+                <motion.div
+                  className="w-1.5 h-1.5 bg-[#034a9a] rounded-full mt-1.5 mr-2 flex-shrink-0"
+                  whileHover={{ scale: 1.5 }}
+                />
+                {feature}
+              </motion.li>
+            ))}
+          </motion.ul>
+
+          {/* Recommended For */}
+          <motion.div
+            className="mt-4 p-3 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-l-4 border-[#034a9a]"
+            whileHover={{ scale: 1.02 }}
+          >
+            <p className="text-xs font-semibold text-[#034a9a]">
+              ✅ Recommended For: {product.recommendedFor}
+            </p>
+          </motion.div>
+
+          {/* Available Packs */}
+          {product.packs && (
+            <motion.div
+              className="mt-3 p-2 bg-gradient-to-r from-green-50 to-green-100 rounded-lg"
+              whileHover={{ scale: 1.01 }}
+            >
+              <p className="text-xs font-semibold text-green-700">
+                📦 Available Packs: {product.packs}
+              </p>
+            </motion.div>
+          )}
+        </div>
+      </motion.div>
+
+      {/* Badge */}
+      <motion.div
+        className={`absolute top-4 right-4 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg bg-gradient-to-r ${product.gradient}`}
+        initial={{ scale: 0.8 }}
+        whileHover={{
+          scale: 1.1,
+          rotate: 5,
+          transition: { type: "spring", stiffness: 300 },
+        }}
+      >
+        {product.badge}
+      </motion.div>
+    </motion.div>
+  );
 
   useEffect(() => {
     setIsLoading(true);
@@ -263,361 +619,300 @@ export const ProductLayout = ({
 
   return (
     <>
-    <helmet>
-      <title>{metatitle}</title>
-          <meta 
-            name="description" 
-            content={`${meta_Description}`}
-          />
-          <meta 
-            name="keywords" 
-            content={`${meta_Keywords}`} 
-          />
-    </helmet>
-    <motion.div
-      className="relative overflow-hidden min-h-screen"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      {/* Header Section */}
-      <motion.header
-        className="w-full py-12 individual__product__section"
-        variants={fadeIn}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-40 relative">
-          <div className="max-w-3xl">
-            <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 uppercase"
-              variants={slideUp}
-            >
-              {title}
-            </motion.h1>
-            <AppBreadcrumbs className="text-teal-100" />
-          </div>
-        </div>
-      </motion.header>
-
-      {/* Main Content Section */}
-      <motion.section
-        className= "lg:px-16 xl:px-24  bg-transparent lg:bg-gradient-to-b from-white to-blue-50  w-full px-4 sm:px-6 pb-16 lg:pb-24 py-12"
+      <Helmet>
+        <title>{metatitle}</title>
+        <meta
+          name="description"
+          content={`${meta_Description}`}
+        />
+        <meta
+          name="keywords"
+          content={`${meta_Keywords}`}
+        />
+      </Helmet>
+      <motion.div
+        className="relative overflow-hidden min-h-screen"
+        initial="hidden"
+        animate="visible"
         variants={containerVariants}
       >
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <motion.div className="mb-12 text-center" variants={itemVariants}>
-            <motion.h1
-              className="lg:text-5xl md:text-4xl sm:text-4xl text-3xl text-[#034a9a] font-bold font-[Roboto] mb-6"
-              whileHover={{ scale: 1.01 }}
-            >
-              {mainTitle}
-            </motion.h1>
-            <motion.div
-              className="w-24 h-1 bg-[#034a9a] mx-auto mb-8"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8 }}
-            />
-          </motion.div>
-
-          {/* Content */}
-          <motion.div
-            className="grid lg:grid-cols-2 gap-12 items-center"
-            variants={containerVariants}
-          >
-            <motion.div variants={itemVariants}>
-              {paragraphs.map((paragraph, index) => (
-                <motion.p
-                  key={index}
-                  className="text-base sm:text-lg md:text-xl text-[#005b96] leading-7 md:leading-8 mb-8"
-                  variants={itemVariants}
-                  whileHover={{ x: 5 }}
-                >
-                  {renderParagraph(paragraph)}
-                </motion.p>
-              ))}
-
-              <motion.ul
-                className="space-y-4 mb-8"
-                variants={containerVariants}
+        {/* Header Section */}
+        <motion.header
+          className="w-full py-12 individual__product__section"
+          variants={fadeIn}
+        >
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-40 relative">
+            <div className="max-w-3xl">
+              <motion.h1
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 uppercase"
+                variants={slideUp}
               >
-                {features.map((item, index) => (
-                  <motion.li
+                {title}
+              </motion.h1>
+              <AppBreadcrumbs className="text-teal-100" />
+            </div>
+          </div>
+        </motion.header>
+
+        {/* Main Content Section */}
+        <motion.section
+          className="lg:px-16 xl:px-24 bg-transparent lg:bg-gradient-to-b from-white to-blue-50 w-full px-4 sm:px-6 pb-16 lg:pb-24 py-12"
+          variants={containerVariants}
+        >
+          <div className="max-w-7xl mx-auto">
+            {/* Header */}
+            <motion.div className="mb-12 text-center" variants={itemVariants}>
+              <motion.h1
+                className="lg:text-5xl md:text-4xl sm:text-4xl text-3xl text-[#034a9a] font-bold font-[Roboto] mb-6"
+                whileHover={{ scale: 1.01 }}
+              >
+                {mainTitle}
+              </motion.h1>
+              <motion.div
+                className="w-24 h-1 bg-[#034a9a] mx-auto mb-8"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8 }}
+              />
+            </motion.div>
+
+            {/* Content */}
+            <motion.div
+              className="grid lg:grid-cols-2 gap-12 items-center"
+              variants={containerVariants}
+            >
+              <motion.div variants={itemVariants}>
+                {paragraphs.map((paragraph, index) => (
+                  <motion.p
                     key={index}
-                    className="flex items-start"
+                    className="text-base sm:text-lg md:text-xl text-[#005b96] leading-7 md:leading-8 mb-8"
                     variants={itemVariants}
                     whileHover={{ x: 5 }}
                   >
-                    <motion.svg
-                      className="w-5 h-5 text-[#034a9a] mt-1 mr-3 flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </motion.svg>
-                    <span className="text-[#005b96] text-base sm:text-lg">
-                      {item}
-                    </span>
-                  </motion.li>
+                    {renderParagraph(paragraph)}
+                  </motion.p>
                 ))}
-              </motion.ul>
-            </motion.div>
 
-            <motion.div
-              className="relative h-full min-h-[400px] rounded-xl overflow-hidden shadow-lg"
-              variants={itemVariants}
-              whileHover={{ scale: 1.01 }}
-            >
-              <motion.img
-                src={mainImage.src}
-                alt={mainImage.alt}
-                className="w-full h-full object-cover absolute inset-0"
-                loading="lazy"
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5 }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#034a9a] to-transparent opacity-90"></div>
-              <motion.div
-                className="absolute bottom-0 left-0 p-8 text-white"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-              >
-                <motion.h3
-                  className="text-2xl font-bold mb-4"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  {mainImage.overlayTitle}
-                </motion.h3>
-                <motion.p className="mb-4">{mainImage.overlayText}</motion.p>
-                <motion.div
-                  className="flex flex-wrap gap-4"
+                <motion.ul
+                  className="space-y-4 mb-8"
                   variants={containerVariants}
                 >
-                  {mainImage.certifications.map((cert, i) => (
-                    <motion.span
-                      key={i}
-                      className="bg-white/20 px-4 py-2 rounded-full text-sm"
+                  {features.map((item, index) => (
+                    <motion.li
+                      key={index}
+                      className="flex items-start"
                       variants={itemVariants}
-                      whileHover={{ scale: 1.1 }}
+                      whileHover={{ x: 5 }}
                     >
-                      {cert}
-                    </motion.span>
+                      <motion.svg
+                        className="w-5 h-5 text-[#034a9a] mt-1 mr-3 flex-shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </motion.svg>
+                      <span className="text-[#005b96] text-base sm:text-lg">
+                        {item}
+                      </span>
+                    </motion.li>
                   ))}
+                </motion.ul>
+              </motion.div>
+
+              <motion.div
+                className="relative h-full min-h-[400px] rounded-xl overflow-hidden shadow-lg"
+                variants={itemVariants}
+                whileHover={{ scale: 1.01 }}
+              >
+                <motion.img
+                  src={mainImage.src}
+                  alt={mainImage.alt}
+                  className="w-full h-full object-cover absolute inset-0"
+                  loading="lazy"
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.5 }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#034a9a] to-transparent opacity-90"></div>
+                <motion.div
+                  className="absolute bottom-0 left-0 p-8 text-white"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  <motion.h3
+                    className="text-2xl font-bold mb-4"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    {mainImage.overlayTitle}
+                  </motion.h3>
+                  <motion.p className="mb-4">{mainImage.overlayText}</motion.p>
+                  <motion.div
+                    className="flex flex-wrap gap-4"
+                    variants={containerVariants}
+                  >
+                    {mainImage.certifications.map((cert, i) => (
+                      <motion.span
+                        key={i}
+                        className="bg-white/20 px-4 py-2 rounded-full text-sm"
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        {cert}
+                      </motion.span>
+                    ))}
+                  </motion.div>
                 </motion.div>
               </motion.div>
             </motion.div>
-          </motion.div>
 
-          {/* Technical Specifications */}
-          <motion.div
-            className="mt-16 bg-white p-8 rounded-xl shadow-md"
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-          >
-            <motion.h3
-              className="text-2xl font-bold text-[#034a9a] mb-6"
-              whileHover={{ scale: 1.01 }}
-            >
-              Technical Specifications
-            </motion.h3>
+            {/* Technical Specifications */}
             <motion.div
-              className="grid md:grid-cols-3 gap-6"
+              className="mt-16 bg-white p-8 rounded-xl shadow-md"
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+            >
+              <motion.h3
+                className="text-2xl font-bold text-[#034a9a] mb-6"
+                whileHover={{ scale: 1.01 }}
+              >
+                Technical Specifications
+              </motion.h3>
+              <motion.div
+                className="grid md:grid-cols-3 gap-6"
+                variants={containerVariants}
+              >
+                {technicalSpecs.map((spec, i) => (
+                  <motion.div
+                    key={i}
+                    className="border-l-4 border-[#034a9a] pl-4 py-2"
+                    variants={itemVariants}
+                    whileHover={{ x: 5 }}
+                  >
+                    <motion.h4
+                      className="font-bold text-[#005b96]"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      {spec.title}
+                    </motion.h4>
+                    <motion.p
+                      className="text-2xl font-bold text-[#034a9a]"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      {spec.value}
+                    </motion.p>
+                    <motion.p className="text-gray-600">{spec.desc}</motion.p>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* Products Grid Section */}
+        <motion.section
+          className="relative z-10 sm:px-8 lg:px-12 xl:px-32 2xl:px-40 py-12"
+          variants={containerVariants}
+        >
+          {/* Motorcycle Oil Section */}
+          <motion.div className="mb-16" variants={itemVariants}>
+            <motion.h2 className="text-3xl font-bold text-[#034a9a] mb-8 text-center">
+              Motorcycle Oil 
+            </motion.h2>
+            <motion.div
+              className="flex flex-col items-center"
               variants={containerVariants}
             >
-              {technicalSpecs.map((spec, i) => (
-                <motion.div
-                  key={i}
-                  className="border-l-4 border-[#034a9a] pl-4 py-2"
-                  variants={itemVariants}
-                  whileHover={{ x: 5 }}
-                >
-                  <motion.h4
-                    className="font-bold text-[#005b96]"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    {spec.title}
-                  </motion.h4>
-                  <motion.p
-                    className="text-2xl font-bold text-[#034a9a]"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {spec.value}
-                  </motion.p>
-                  <motion.p className="text-gray-600">{spec.desc}</motion.p>
-                </motion.div>
+              {/* First three cards in normal grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8 w-full">
+                {productCategories.motorcycle.slice(0, 3).map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+
+              {/* Last two cards centered */}
+              <div className="flex flex-col md:flex-row justify-center items-center gap-8 p-8 w-full">
+                {productCategories.motorcycle.slice(3).map((product) => (
+                  <div key={product.id} className="w-full max-w-md">
+                    <ProductCard product={product} />
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Light Transport Vehicles Section */}
+          <motion.div className="mb-16" variants={itemVariants}>
+            <motion.h2 className="text-3xl font-bold text-[#034a9a] mb-8 text-center">
+              Light Transport Vehicles
+            </motion.h2>
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8"
+              variants={containerVariants}
+            >
+              {productCategories.lightTransport.map((product) => (
+                <ProductCard key={product.id} product={product} />
               ))}
             </motion.div>
           </motion.div>
-        </div>
-      </motion.section>
 
-      {/* Products Grid Section */}
-      <motion.section
-        className="relative z-10 sm:px-8 lg:px-12 xl:px-32 2xl:px-40 py-12"
-        variants={containerVariants}
-      >
-        {/* Commercial Engine Oil */}
-        <motion.div className="mb-12 text-center" variants={itemVariants}>
-          <motion.h1
-            className="lg:text-5xl md:text-4xl sm:text-4xl text-3xl text-[#034a9a] font-bold font-[Roboto] mb-6"
-            whileHover={{ scale: 1.01 }}
-          >
-            Commercial Engine Oil
-          </motion.h1>
-          <motion.div
-            className="w-24 h-1 bg-[#034a9a] mx-auto mb-8"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8 }}
-          />
-        </motion.div>
-
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
-          variants={containerVariants}
-        >
-          {CommercialsimilarProducts.map((product) => (
+          {/* Passenger Car Motor Oil Section */}
+          <motion.div className="mb-16" variants={itemVariants}>
+            <motion.h2 className="text-3xl font-bold text-[#034a9a] mb-8 text-center">
+              Passenger Car Motor Oil (PCMO)
+            </motion.h2>
             <motion.div
-              key={product.id}
-              className="group relative h-fit lg:h-[28rem] rounded-3xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 shadow-2xl hover:shadow-3xl border-2 border-white/20"
-              initial="rest"
-              whileHover="hover"
-              variants={cardVariants}
-              layout
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
+              variants={containerVariants}
             >
-              {/* Background effects */}
-              {backgroundEffects && (
-                <div className="absolute inset-0 overflow-hidden">
-                  <div className="absolute inset-0 opacity-30">
-                    {[...Array(8)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute rounded-full bg-blue-500/20"
-                        initial={{
-                          x: `${Math.random() * 100}%`,
-                          y: `${Math.random() * 100}%`,
-                          scale: Math.random() * 0.5 + 0.5,
-                        }}
-                        animate={{
-                          x: [
-                            `${Math.random() * 100}%`,
-                            `${Math.random() * 100}%`,
-                          ],
-                          y: [
-                            `${Math.random() * 100}%`,
-                            `${Math.random() * 100}%`,
-                          ],
-                          transition: {
-                            duration: Math.random() * 20 + 10,
-                            repeat: Infinity,
-                            repeatType: "reverse",
-                            ease: "linear",
-                          },
-                        }}
-                        style={{
-                          width: `${Math.random() * 200 + 100}px`,
-                          height: `${Math.random() * 200 + 100}px`,
-                          filter: "blur(40px)",
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Product image */}
-              <motion.div
-                className="relative h-1/2 overflow-hidden"
-                // variants={{
-                //   rest: { y: 0 },
-                //   hover: { y: -20 },
-                // }}
-              >
-                <motion.img
-                  src={product.productImg}
-                  className="w-full h-full object-contain"
-                  alt={product.productName}
-                  loading="lazy"
-                  // variants={imageHover}
-                  transition={{ duration: 0.5 }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent pointer-events-none" />
-              </motion.div>
-
-              {/* Product info */}
-              <motion.div
-                className="relative h-1/2 p-8 flex flex-col justify-between"
-                variants={{
-                  rest: { y: 0 },
-                  hover: { y: -30 },
-                }}
-              >
-                <div>
-                  <motion.h3
-                    className="text-2xl font-extrabold text-[#005b96] mb-3"
-                    initial={{ textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
-                    whileHover={{
-                      textShadow: "0 5px 15px rgba(0,0,0,0.2)",
-                      transition: { duration: 0.3 },
-                    }}
-                  >
-                    {product.productName}
-                  </motion.h3>
-
-                  <motion.p
-                    className="text-[#03396c] mb-6 relative"
-                    whileHover={{
-                      color: "#6497b1",
-                      transition: { duration: 0.2 },
-                    }}
-                  >
-                    {product.productDescription}
-                    <motion.span
-                      className="absolute bottom-0 left-0 h-0.5 bg-blue-500"
-                      initial={{ width: 0 }}
-                      whileHover={{ width: "100%" }}
-                      transition={{ duration: 0.4 }}
-                    />
-                  </motion.p>
-                </div>
-              </motion.div>
-
-              {/* Featured badge */}
-              {product.badge && (
-                <motion.div
-                  className={`absolute top-6 right-6 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg ${
-                    product.badge === "commercial"
-                      ? "bg-gradient-to-r from-blue-500 to-blue-700"
-                      : "bg-gradient-to-r from-green-500 to-green-700"
-                  }`}
-                  initial={{ scale: 0.8 }}
-                  whileHover={{
-                    scale: 1.1,
-                    rotate: 5,
-                    transition: { type: "spring", stiffness: 300 },
-                  }}
-                >
-                  {product.badge === "commercial" ? "COMMERCIAL" : "4-STROKE"}
-                </motion.div>
-              )}
+              {productCategories.passengerCar.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
             </motion.div>
-          ))}
-        </motion.div>
+          </motion.div>
 
-        {/* 4 Stroke Engine Oil */}
-      </motion.section>
-    </motion.div>
+          {/* Agricultural & Stationary Engine Oil Section */}
+          <motion.div className="mb-16" variants={itemVariants}>
+            <motion.h2 className="text-3xl font-bold text-[#034a9a] mb-8 text-center">
+              Agricultural & Stationary Engine Oil
+            </motion.h2>
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
+              variants={containerVariants}
+            >
+              {productCategories.agricultural.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* HCV/LCV Lubricants Section */}
+          <motion.div className="mb-16" variants={itemVariants}>
+            <motion.h2 className="text-3xl font-bold text-[#034a9a] mb-8 text-center">
+              HCV/LCV Lubricants (DEO-Diesel Engine Oil)
+            </motion.h2>
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
+              variants={containerVariants}
+            >
+              {productCategories.heavyCommercial.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </motion.div>
+          </motion.div>
+        </motion.section>
+      </motion.div>
     </>
   );
 };
+
+
 
 export const Gearoil = ({
   // Header props
@@ -1370,187 +1665,21 @@ export const HydraulicOilProductLayout = ({
       </motion.header>
       <div className="">
 
-      {/* Main Content Section */}
-      <motion.section
-        className=" lg:px-16 xl:px-24  bg-transparent lg:bg-gradient-to-b from-white to-blue-50  w-full px-4 sm:px-6 pb-16 lg:pb-24 py-12"
-        variants={containerVariants}
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.div className="mb-12 text-center" variants={itemVariants}>
-            <motion.h1
-              className="text-3xl sm:text-4xl lg:text-5xl text-[#034a9a] font-bold mb-6"
-              whileHover={{ scale: 1.01 }}
-            >
-              {mainTitle}
-            </motion.h1>
-            <motion.div
-              className="w-24 h-1 bg-[#034a9a] mx-auto mb-8"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8 }}
-            />
-          </motion.div>
-
-          <motion.div
-            className="grid lg:grid-cols-2 gap-12 items-center"
-            variants={containerVariants}
-          >
-            <motion.div variants={itemVariants}>
-              {paragraphs.map((paragraph, index) => (
-                <motion.p
-                  key={index}
-                  className="text-base sm:text-lg text-[#005b96] leading-7 md:leading-8 mb-8"
-                  variants={itemVariants}
-                  whileHover={{ x: 5 }}
-                >
-                  {renderParagraph(paragraph)}
-                </motion.p>
-              ))}
-
-              <motion.ul
-                className="space-y-4 mb-8"
-                variants={containerVariants}
-              >
-                {features.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    className="flex items-start"
-                    variants={itemVariants}
-                    whileHover={{ x: 5 }}
-                  >
-                    <motion.svg
-                      className="w-5 h-5 text-[#034a9a] mt-1 mr-3 flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </motion.svg>
-                    <span className="text-[#005b96] text-base sm:text-lg">
-                      {item}
-                    </span>
-                  </motion.li>
-                ))}
-              </motion.ul>
-            </motion.div>
-
-            <motion.div
-              className="relative h-full min-h-[400px] rounded-xl overflow-hidden shadow-xl"
-              variants={itemVariants}
-              whileHover={{ scale: 1.01 }}
-            >
-              <motion.img
-                src={mainImage.src}
-                alt={mainImage.alt}
-                className="w-full h-full object-cover absolute inset-0"
-                loading="lazy"
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5 }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#034a9a] to-transparent opacity-90"></div>
-              <motion.div
-                className="absolute bottom-0 left-0 p-8 text-white"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-              >
-                <motion.h3
-                  className="text-2xl font-bold mb-4"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  {mainImage.overlayTitle}
-                </motion.h3>
-                <motion.p className="mb-4">{mainImage.overlayText}</motion.p>
-                <motion.div
-                  className="flex flex-wrap gap-2"
-                  variants={containerVariants}
-                >
-                  {mainImage.certifications.map((cert, i) => (
-                    <motion.span
-                      key={i}
-                      className="bg-white/20 px-3 py-1 rounded-full text-xs"
-                      variants={itemVariants}
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      {cert}
-                    </motion.span>
-                  ))}
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-
-          {/* Technical Specifications */}
-          <motion.div
-            className="mt-16 bg-white p-6 sm:p-8 rounded-xl shadow-md"
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-          >
-            <motion.h3
-              className="text-2xl font-bold text-[#034a9a] mb-6"
-              whileHover={{ scale: 1.01 }}
-            >
-              Technical Specifications
-            </motion.h3>
-            <motion.div
-              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-              variants={containerVariants}
-            >
-              {technicalSpecs.map((spec, i) => (
-                <motion.div
-                  key={i}
-                  className="border-l-4 border-[#034a9a] pl-4 py-2"
-                  variants={itemVariants}
-                  whileHover={{ x: 5 }}
-                >
-                  <motion.h4
-                    className="font-bold text-[#005b96] text-sm sm:text-base"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    {spec.title}
-                  </motion.h4>
-                  <motion.p
-                    className="text-xl sm:text-2xl font-bold text-[#034a9a]"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {spec.value}
-                  </motion.p>
-                  <motion.p className="text-gray-600 text-sm">
-                    {spec.desc}
-                  </motion.p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Product Categories */}
-      {productCategories.map((category, index) => (
+        {/* Main Content Section */}
         <motion.section
-          key={index}
-          className="relative z-10 px-4 sm:px-8 lg:px-16 py-12"
+          className=" lg:px-16 xl:px-24  bg-transparent lg:bg-gradient-to-b from-white to-blue-50  w-full px-4 sm:px-6 pb-16 lg:pb-24 py-12"
           variants={containerVariants}
         >
-          <div className="w-full mx-auto">
-            <motion.div
-              className="mb-8 sm:mb-12 text-center"
-              variants={itemVariants}
-            >
-              <motion.h2
-                className="text-2xl sm:text-3xl lg:text-4xl text-[#034a9a] font-bold mb-4"
+          <div className="max-w-7xl mx-auto">
+            <motion.div className="mb-12 text-center" variants={itemVariants}>
+              <motion.h1
+                className="text-3xl sm:text-4xl lg:text-5xl text-[#034a9a] font-bold mb-6"
                 whileHover={{ scale: 1.01 }}
               >
-                {category.name}
-              </motion.h2>
+                {mainTitle}
+              </motion.h1>
               <motion.div
-                className="w-20 h-1 bg-[#034a9a] mx-auto"
+                className="w-24 h-1 bg-[#034a9a] mx-auto mb-8"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8 }}
@@ -1558,117 +1687,283 @@ export const HydraulicOilProductLayout = ({
             </motion.div>
 
             <motion.div
-              className="flex flex-row justify-center gap-6 sm:gap-8"
+              className="grid lg:grid-cols-2 gap-12 items-center"
               variants={containerVariants}
             >
-              {category.products.map((product) => (
-                <motion.div
-                  key={product.id}
-                  className={`group relative ${productCardOptions.heightClass} rounded-xl overflow-hidden bg-gradient-to-br ${productCardOptions.background} shadow-lg hover:shadow-xl border border-gray-200 w-full h-fit lg:h-[34rem] lg:w-[540px]`}
-                  initial="rest"
-                  whileHover="hover"
-                  variants={cardVariants}
+              <motion.div variants={itemVariants}>
+                {paragraphs.map((paragraph, index) => (
+                  <motion.p
+                    key={index}
+                    className="text-base sm:text-lg text-[#005b96] leading-7 md:leading-8 mb-8"
+                    variants={itemVariants}
+                    whileHover={{ x: 5 }}
+                  >
+                    {renderParagraph(paragraph)}
+                  </motion.p>
+                ))}
+
+                <motion.ul
+                  className="space-y-4 mb-8"
+                  variants={containerVariants}
                 >
-                  {/* Background effects */}
-                  {backgroundEffects && (
-                    <div className="absolute inset-0 overflow-hidden">
-                      <div className="absolute inset-0 opacity-30">
-                        {[...Array(8)].map((_, i) => (
-                          <motion.div
-                            key={i}
-                            className="absolute rounded-full bg-blue-500/20"
-                            initial={{
-                              x: `${Math.random() * 100}%`,
-                              y: `${Math.random() * 100}%`,
-                              scale: Math.random() * 0.5 + 0.5,
-                            }}
-                            animate={{
-                              x: [
-                                `${Math.random() * 100}%`,
-                                `${Math.random() * 100}%`,
-                              ],
-                              y: [
-                                `${Math.random() * 100}%`,
-                                `${Math.random() * 100}%`,
-                              ],
-                              transition: {
-                                duration: Math.random() * 20 + 10,
-                                repeat: Infinity,
-                                repeatType: "reverse",
-                                ease: "linear",
-                              },
-                            }}
-                            style={{
-                              width: `${Math.random() * 200 + 100}px`,
-                              height: `${Math.random() * 200 + 100}px`,
-                              filter: "blur(40px)",
-                            }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  <motion.div
-                    className="relative h-1/2 overflow-hidden bg"
-                    variants={{
-                      rest: { y: 0 },
-                      hover: { y: -20 },
-                    }}
-                  >
-                    <motion.img
-                      src={product.productImg}
-                      className="w-full h-full object-contain"
-                      alt={product.productName}
-                      loading="lazy"
-                      variants={imageHover}
-                      transition={{ duration: 0.5 }}
-                    />
-                  </motion.div>
-
-                  <motion.div
-                    className="relative h-full p-6 flex flex-col"
-                    variants={{
-                      rest: { y: 0 },
-                      hover: { y: -30 },
-                    }}
-                  >
-                    <motion.h3
-                      className={`text-xl font-bold ${productCardOptions.textColor} mb-3`}
-                      initial={{ textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
-                      whileHover={{
-                        textShadow: "0 5px 15px rgba(0,0,0,0.2)",
-                        transition: { duration: 0.3 },
-                      }}
+                  {features.map((item, index) => (
+                    <motion.li
+                      key={index}
+                      className="flex items-start"
+                      variants={itemVariants}
+                      whileHover={{ x: 5 }}
                     >
-                      {product.productName}
-                    </motion.h3>
-                    <motion.p
-                      className={`${productCardOptions.descriptionColor} mb-6 relative`}
-                      whileHover={{
-                        color: "#6497b1",
-                        transition: { duration: 0.2 },
-                      }}
-                    >
-                      {product.productDescription}
+                      <motion.svg
+                        className="w-5 h-5 text-[#034a9a] mt-1 mr-3 flex-shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </motion.svg>
+                      <span className="text-[#005b96] text-base sm:text-lg">
+                        {item}
+                      </span>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              </motion.div>
+
+              <motion.div
+                className="relative h-full min-h-[400px] rounded-xl overflow-hidden shadow-xl"
+                variants={itemVariants}
+                whileHover={{ scale: 1.01 }}
+              >
+                <motion.img
+                  src={mainImage.src}
+                  alt={mainImage.alt}
+                  className="w-full h-full object-cover absolute inset-0"
+                  loading="lazy"
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.5 }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#034a9a] to-transparent opacity-90"></div>
+                <motion.div
+                  className="absolute bottom-0 left-0 p-8 text-white"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  <motion.h3
+                    className="text-2xl font-bold mb-4"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    {mainImage.overlayTitle}
+                  </motion.h3>
+                  <motion.p className="mb-4">{mainImage.overlayText}</motion.p>
+                  <motion.div
+                    className="flex flex-wrap gap-2"
+                    variants={containerVariants}
+                  >
+                    {mainImage.certifications.map((cert, i) => (
                       <motion.span
-                        className="absolute bottom-0 left-0 h-0.5 bg-blue-500"
-                        initial={{ width: 0 }}
-                        whileHover={{ width: "100%" }}
-                        transition={{ duration: 0.4 }}
-                      />
+                        key={i}
+                        className="bg-white/20 px-3 py-1 rounded-full text-xs"
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        {cert}
+                      </motion.span>
+                    ))}
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+
+            {/* Technical Specifications */}
+            <motion.div
+              className="mt-16 bg-white p-6 sm:p-8 rounded-xl shadow-md"
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+            >
+              <motion.h3
+                className="text-2xl font-bold text-[#034a9a] mb-6"
+                whileHover={{ scale: 1.01 }}
+              >
+                Technical Specifications
+              </motion.h3>
+              <motion.div
+                className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+                variants={containerVariants}
+              >
+                {technicalSpecs.map((spec, i) => (
+                  <motion.div
+                    key={i}
+                    className="border-l-4 border-[#034a9a] pl-4 py-2"
+                    variants={itemVariants}
+                    whileHover={{ x: 5 }}
+                  >
+                    <motion.h4
+                      className="font-bold text-[#005b96] text-sm sm:text-base"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      {spec.title}
+                    </motion.h4>
+                    <motion.p
+                      className="text-xl sm:text-2xl font-bold text-[#034a9a]"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      {spec.value}
+                    </motion.p>
+                    <motion.p className="text-gray-600 text-sm">
+                      {spec.desc}
                     </motion.p>
                   </motion.div>
-
-                  {product.isNew && <ProductBadge type="new" />}
-                  {product.isFeatured && <ProductBadge type="featured" />}
-                  {product.isBestSeller && <ProductBadge type="bestSeller" />}
-                </motion.div>
-              ))}
+                ))}
+              </motion.div>
             </motion.div>
           </div>
         </motion.section>
-      ))}
+
+        {/* Product Categories */}
+        {productCategories.map((category, index) => (
+          <motion.section
+            key={index}
+            className="relative z-10 px-4 sm:px-8 lg:px-16 py-12"
+            variants={containerVariants}
+          >
+            <div className="w-full mx-auto">
+              <motion.div
+                className="mb-8 sm:mb-12 text-center"
+                variants={itemVariants}
+              >
+                <motion.h2
+                  className="text-2xl sm:text-3xl lg:text-4xl text-[#034a9a] font-bold mb-4"
+                  whileHover={{ scale: 1.01 }}
+                >
+                  {category.name}
+                </motion.h2>
+                <motion.div
+                  className="w-20 h-1 bg-[#034a9a] mx-auto"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8 }}
+                />
+              </motion.div>
+
+              <motion.div
+                className="flex flex-row justify-center gap-6 sm:gap-8"
+                variants={containerVariants}
+              >
+                {category.products.map((product) => (
+                  <motion.div
+                    key={product.id}
+                    className={`group relative ${productCardOptions.heightClass} rounded-xl overflow-hidden bg-gradient-to-br ${productCardOptions.background} shadow-lg hover:shadow-xl border border-gray-200 w-full h-fit lg:h-[34rem] lg:w-[540px]`}
+                    initial="rest"
+                    whileHover="hover"
+                    variants={cardVariants}
+                  >
+                    {/* Background effects */}
+                    {backgroundEffects && (
+                      <div className="absolute inset-0 overflow-hidden">
+                        <div className="absolute inset-0 opacity-30">
+                          {[...Array(8)].map((_, i) => (
+                            <motion.div
+                              key={i}
+                              className="absolute rounded-full bg-blue-500/20"
+                              initial={{
+                                x: `${Math.random() * 100}%`,
+                                y: `${Math.random() * 100}%`,
+                                scale: Math.random() * 0.5 + 0.5,
+                              }}
+                              animate={{
+                                x: [
+                                  `${Math.random() * 100}%`,
+                                  `${Math.random() * 100}%`,
+                                ],
+                                y: [
+                                  `${Math.random() * 100}%`,
+                                  `${Math.random() * 100}%`,
+                                ],
+                                transition: {
+                                  duration: Math.random() * 20 + 10,
+                                  repeat: Infinity,
+                                  repeatType: "reverse",
+                                  ease: "linear",
+                                },
+                              }}
+                              style={{
+                                width: `${Math.random() * 200 + 100}px`,
+                                height: `${Math.random() * 200 + 100}px`,
+                                filter: "blur(40px)",
+                              }}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <motion.div
+                      className="relative h-1/2 overflow-hidden bg"
+                      variants={{
+                        rest: { y: 0 },
+                        hover: { y: -20 },
+                      }}
+                    >
+                      <motion.img
+                        src={product.productImg}
+                        className="w-full h-full object-contain"
+                        alt={product.productName}
+                        loading="lazy"
+                        variants={imageHover}
+                        transition={{ duration: 0.5 }}
+                      />
+                    </motion.div>
+
+                    <motion.div
+                      className="relative h-full p-6 flex flex-col"
+                      variants={{
+                        rest: { y: 0 },
+                        hover: { y: -30 },
+                      }}
+                    >
+                      <motion.h3
+                        className={`text-xl font-bold ${productCardOptions.textColor} mb-3`}
+                        initial={{ textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
+                        whileHover={{
+                          textShadow: "0 5px 15px rgba(0,0,0,0.2)",
+                          transition: { duration: 0.3 },
+                        }}
+                      >
+                        {product.productName}
+                      </motion.h3>
+                      <motion.p
+                        className={`${productCardOptions.descriptionColor} mb-6 relative`}
+                        whileHover={{
+                          color: "#6497b1",
+                          transition: { duration: 0.2 },
+                        }}
+                      >
+                        {product.productDescription}
+                        <motion.span
+                          className="absolute bottom-0 left-0 h-0.5 bg-blue-500"
+                          initial={{ width: 0 }}
+                          whileHover={{ width: "100%" }}
+                          transition={{ duration: 0.4 }}
+                        />
+                      </motion.p>
+                    </motion.div>
+
+                    {product.isNew && <ProductBadge type="new" />}
+                    {product.isFeatured && <ProductBadge type="featured" />}
+                    {product.isBestSeller && <ProductBadge type="bestSeller" />}
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </motion.section>
+        ))}
       </div>
     </motion.div>
   );
@@ -1915,188 +2210,22 @@ export const AutomotiveGreaseProductLayout = ({
           </div>
         </div>
       </motion.header>
-<div className="">
-      {/* Main Content Section */}
-      <motion.section
-        className=" lg:px-16 xl:px-24  bg-transparent lg:bg-gradient-to-b from-white to-blue-50  w-full px-4 sm:px-6 pb-16 lg:pb-24 py-12   "
-        variants={containerVariants}
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.div className="mb-12 text-center" variants={itemVariants}>
-            <motion.h1
-              className="text-3xl sm:text-4xl lg:text-5xl text-[#034a9a] font-bold mb-6"
-              whileHover={{ scale: 1.01 }}
-            >
-              {mainTitle}
-            </motion.h1>
-            <motion.div
-              className="w-24 h-1 bg-[#034a9a] mx-auto mb-8"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8 }}
-            />
-          </motion.div>
-
-          <motion.div
-            className="grid lg:grid-cols-2 gap-12 items-center"
-            variants={containerVariants}
-          >
-            <motion.div variants={itemVariants}>
-              {paragraphs.map((paragraph, index) => (
-                <motion.p
-                  key={index}
-                  className="text-base sm:text-lg text-[#005b96] leading-7 md:leading-8 mb-8"
-                  variants={itemVariants}
-                  whileHover={{ x: 5 }}
-                >
-                  {renderParagraph(paragraph)}
-                </motion.p>
-              ))}
-
-              <motion.ul
-                className="space-y-4 mb-8"
-                variants={containerVariants}
-              >
-                {features.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    className="flex items-start"
-                    variants={itemVariants}
-                    whileHover={{ x: 5 }}
-                  >
-                    <motion.svg
-                      className="w-5 h-5 text-[#034a9a] mt-1 mr-3 flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </motion.svg>
-                    <span className="text-[#005b96] text-base sm:text-lg">
-                      {item}
-                    </span>
-                  </motion.li>
-                ))}
-              </motion.ul>
-            </motion.div>
-
-            <motion.div
-              className="relative h-full min-h-[400px] rounded-xl overflow-hidden shadow-xl"
-              variants={itemVariants}
-              whileHover={{ scale: 1.01 }}
-            >
-              <motion.img
-                src={mainImage.src}
-                alt={mainImage.alt}
-                className="w-full h-full object-cover absolute inset-0"
-                loading="lazy"
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5 }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#034a9a] to-transparent opacity-90"></div>
-              <motion.div
-                className="absolute bottom-0 left-0 p-8 text-white"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-              >
-                <motion.h3
-                  className="text-2xl font-bold mb-4"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  {mainImage.overlayTitle}
-                </motion.h3>
-                <motion.p className="mb-4">{mainImage.overlayText}</motion.p>
-                <motion.div
-                  className="flex flex-wrap gap-2"
-                  variants={containerVariants}
-                >
-                  {mainImage.certifications.map((cert, i) => (
-                    <motion.span
-                      key={i}
-                      className="bg-white/20 px-3 py-1 rounded-full text-xs"
-                      variants={itemVariants}
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      {cert}
-                    </motion.span>
-                  ))}
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-
-          {/* Technical Specifications */}
-          <motion.div
-            className="mt-16 bg-white p-6 sm:p-8 rounded-xl shadow-md"
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-          >
-            <motion.h3
-              className="text-2xl font-bold text-[#034a9a] mb-6"
-              whileHover={{ scale: 1.01 }}
-            >
-              Technical Specifications
-            </motion.h3>
-            <motion.div
-              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-              variants={containerVariants}
-            >
-              {technicalSpecs.map((spec, i) => (
-                <motion.div
-                  key={i}
-                  className="border-l-4 border-[#034a9a] pl-4 py-2"
-                  variants={itemVariants}
-                  whileHover={{ x: 5 }}
-                >
-                  <motion.h4
-                    className="font-bold text-[#005b96] text-sm sm:text-base"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    {spec.title}
-                  </motion.h4>
-                  <motion.p
-                    className="text-xl sm:text-2xl font-bold text-[#034a9a]"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {spec.value}
-                  </motion.p>
-                  <motion.p className="text-gray-600 text-sm">
-                    {spec.desc}
-                  </motion.p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Product Categories */}
-      {productCategories.map((category, index) => (
+      <div className="">
+        {/* Main Content Section */}
         <motion.section
-          key={index}
-          className="relative z-10 px-4 sm:px-8 lg:px-16 py-12"
+          className=" lg:px-16 xl:px-24  bg-transparent lg:bg-gradient-to-b from-white to-blue-50  w-full px-4 sm:px-6 pb-16 lg:pb-24 py-12   "
           variants={containerVariants}
         >
           <div className="max-w-7xl mx-auto">
-            <motion.div
-              className="mb-8 sm:mb-12 text-center"
-              variants={itemVariants}
-            >
-              <motion.h2
-                className="text-2xl sm:text-3xl lg:text-4xl text-[#034a9a] font-bold mb-4"
+            <motion.div className="mb-12 text-center" variants={itemVariants}>
+              <motion.h1
+                className="text-3xl sm:text-4xl lg:text-5xl text-[#034a9a] font-bold mb-6"
                 whileHover={{ scale: 1.01 }}
               >
-                {category.name}
-              </motion.h2>
+                {mainTitle}
+              </motion.h1>
               <motion.div
-                className="w-20 h-1 bg-[#034a9a] mx-auto"
+                className="w-24 h-1 bg-[#034a9a] mx-auto mb-8"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8 }}
@@ -2104,117 +2233,283 @@ export const AutomotiveGreaseProductLayout = ({
             </motion.div>
 
             <motion.div
-              className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-6 sm:gap-8"
+              className="grid lg:grid-cols-2 gap-12 items-center"
               variants={containerVariants}
             >
-              {category.products.map((product) => (
-                <motion.div
-                  key={product.id}
-                  className={`group relative ${productCardOptions.heightClass} rounded-xl overflow-hidden bg-gradient-to-br ${productCardOptions.background} shadow-lg hover:shadow-xl border border-gray-200 h-fit lg:h-[24rem]`}
-                  initial="rest"
-                  whileHover="hover"
-                  variants={cardVariants}
+              <motion.div variants={itemVariants}>
+                {paragraphs.map((paragraph, index) => (
+                  <motion.p
+                    key={index}
+                    className="text-base sm:text-lg text-[#005b96] leading-7 md:leading-8 mb-8"
+                    variants={itemVariants}
+                    whileHover={{ x: 5 }}
+                  >
+                    {renderParagraph(paragraph)}
+                  </motion.p>
+                ))}
+
+                <motion.ul
+                  className="space-y-4 mb-8"
+                  variants={containerVariants}
                 >
-                  {/* Background effects */}
-                  {backgroundEffects && (
-                    <div className="absolute inset-0 overflow-hidden">
-                      <div className="absolute inset-0 opacity-30">
-                        {[...Array(8)].map((_, i) => (
-                          <motion.div
-                            key={i}
-                            className="absolute rounded-full bg-blue-500/20"
-                            initial={{
-                              x: `${Math.random() * 100}%`,
-                              y: `${Math.random() * 100}%`,
-                              scale: Math.random() * 0.5 + 0.5,
-                            }}
-                            animate={{
-                              x: [
-                                `${Math.random() * 100}%`,
-                                `${Math.random() * 100}%`,
-                              ],
-                              y: [
-                                `${Math.random() * 100}%`,
-                                `${Math.random() * 100}%`,
-                              ],
-                              transition: {
-                                duration: Math.random() * 20 + 10,
-                                repeat: Infinity,
-                                repeatType: "reverse",
-                                ease: "linear",
-                              },
-                            }}
-                            style={{
-                              width: `${Math.random() * 200 + 100}px`,
-                              height: `${Math.random() * 200 + 100}px`,
-                              filter: "blur(40px)",
-                            }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  <motion.div
-                    className="relative h-1/2 overflow-hidden "
-                    variants={{
-                      rest: { y: 0 },
-                      hover: { y: -20 },
-                    }}
-                  >
-                    <motion.img
-                      src={product.productImg}
-                      className="w-full h-full object-contain"
-                      alt={product.productName}
-                      loading="lazy"
-                      variants={imageHover}
-                      transition={{ duration: 0.5 }}
-                    />
-                  </motion.div>
-
-                  <motion.div
-                    className="relative h-1/2 p-6 flex flex-col"
-                    variants={{
-                      rest: { y: 0 },
-                      hover: { y: -30 },
-                    }}
-                  >
-                    <motion.h3
-                      className={`text-xl font-bold ${productCardOptions.textColor} mb-3`}
-                      initial={{ textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
-                      whileHover={{
-                        textShadow: "0 5px 15px rgba(0,0,0,0.2)",
-                        transition: { duration: 0.3 },
-                      }}
+                  {features.map((item, index) => (
+                    <motion.li
+                      key={index}
+                      className="flex items-start"
+                      variants={itemVariants}
+                      whileHover={{ x: 5 }}
                     >
-                      {product.productName}
-                    </motion.h3>
-                    <motion.p
-                      className={`${productCardOptions.descriptionColor} mb-6 relative`}
-                      whileHover={{
-                        color: "#6497b1",
-                        transition: { duration: 0.2 },
-                      }}
-                    >
-                      {product.productDescription}
+                      <motion.svg
+                        className="w-5 h-5 text-[#034a9a] mt-1 mr-3 flex-shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </motion.svg>
+                      <span className="text-[#005b96] text-base sm:text-lg">
+                        {item}
+                      </span>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              </motion.div>
+
+              <motion.div
+                className="relative h-full min-h-[400px] rounded-xl overflow-hidden shadow-xl"
+                variants={itemVariants}
+                whileHover={{ scale: 1.01 }}
+              >
+                <motion.img
+                  src={mainImage.src}
+                  alt={mainImage.alt}
+                  className="w-full h-full object-cover absolute inset-0"
+                  loading="lazy"
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.5 }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#034a9a] to-transparent opacity-90"></div>
+                <motion.div
+                  className="absolute bottom-0 left-0 p-8 text-white"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  <motion.h3
+                    className="text-2xl font-bold mb-4"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    {mainImage.overlayTitle}
+                  </motion.h3>
+                  <motion.p className="mb-4">{mainImage.overlayText}</motion.p>
+                  <motion.div
+                    className="flex flex-wrap gap-2"
+                    variants={containerVariants}
+                  >
+                    {mainImage.certifications.map((cert, i) => (
                       <motion.span
-                        className="absolute bottom-0 left-0 h-0.5 bg-blue-500"
-                        initial={{ width: 0 }}
-                        whileHover={{ width: "100%" }}
-                        transition={{ duration: 0.4 }}
-                      />
+                        key={i}
+                        className="bg-white/20 px-3 py-1 rounded-full text-xs"
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        {cert}
+                      </motion.span>
+                    ))}
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+
+            {/* Technical Specifications */}
+            <motion.div
+              className="mt-16 bg-white p-6 sm:p-8 rounded-xl shadow-md"
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+            >
+              <motion.h3
+                className="text-2xl font-bold text-[#034a9a] mb-6"
+                whileHover={{ scale: 1.01 }}
+              >
+                Technical Specifications
+              </motion.h3>
+              <motion.div
+                className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+                variants={containerVariants}
+              >
+                {technicalSpecs.map((spec, i) => (
+                  <motion.div
+                    key={i}
+                    className="border-l-4 border-[#034a9a] pl-4 py-2"
+                    variants={itemVariants}
+                    whileHover={{ x: 5 }}
+                  >
+                    <motion.h4
+                      className="font-bold text-[#005b96] text-sm sm:text-base"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      {spec.title}
+                    </motion.h4>
+                    <motion.p
+                      className="text-xl sm:text-2xl font-bold text-[#034a9a]"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      {spec.value}
+                    </motion.p>
+                    <motion.p className="text-gray-600 text-sm">
+                      {spec.desc}
                     </motion.p>
                   </motion.div>
-
-                  {product.isNew && <ProductBadge type="new" />}
-                  {product.isFeatured && <ProductBadge type="featured" />}
-                  {product.isBestSeller && <ProductBadge type="bestSeller" />}
-                </motion.div>
-              ))}
+                ))}
+              </motion.div>
             </motion.div>
           </div>
         </motion.section>
-      ))}
+
+        {/* Product Categories */}
+        {productCategories.map((category, index) => (
+          <motion.section
+            key={index}
+            className="relative z-10 px-4 sm:px-8 lg:px-16 py-12"
+            variants={containerVariants}
+          >
+            <div className="max-w-7xl mx-auto">
+              <motion.div
+                className="mb-8 sm:mb-12 text-center"
+                variants={itemVariants}
+              >
+                <motion.h2
+                  className="text-2xl sm:text-3xl lg:text-4xl text-[#034a9a] font-bold mb-4"
+                  whileHover={{ scale: 1.01 }}
+                >
+                  {category.name}
+                </motion.h2>
+                <motion.div
+                  className="w-20 h-1 bg-[#034a9a] mx-auto"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8 }}
+                />
+              </motion.div>
+
+              <motion.div
+                className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-6 sm:gap-8"
+                variants={containerVariants}
+              >
+                {category.products.map((product) => (
+                  <motion.div
+                    key={product.id}
+                    className={`group relative ${productCardOptions.heightClass} rounded-xl overflow-hidden bg-gradient-to-br ${productCardOptions.background} shadow-lg hover:shadow-xl border border-gray-200 h-fit lg:h-[24rem]`}
+                    initial="rest"
+                    whileHover="hover"
+                    variants={cardVariants}
+                  >
+                    {/* Background effects */}
+                    {backgroundEffects && (
+                      <div className="absolute inset-0 overflow-hidden">
+                        <div className="absolute inset-0 opacity-30">
+                          {[...Array(8)].map((_, i) => (
+                            <motion.div
+                              key={i}
+                              className="absolute rounded-full bg-blue-500/20"
+                              initial={{
+                                x: `${Math.random() * 100}%`,
+                                y: `${Math.random() * 100}%`,
+                                scale: Math.random() * 0.5 + 0.5,
+                              }}
+                              animate={{
+                                x: [
+                                  `${Math.random() * 100}%`,
+                                  `${Math.random() * 100}%`,
+                                ],
+                                y: [
+                                  `${Math.random() * 100}%`,
+                                  `${Math.random() * 100}%`,
+                                ],
+                                transition: {
+                                  duration: Math.random() * 20 + 10,
+                                  repeat: Infinity,
+                                  repeatType: "reverse",
+                                  ease: "linear",
+                                },
+                              }}
+                              style={{
+                                width: `${Math.random() * 200 + 100}px`,
+                                height: `${Math.random() * 200 + 100}px`,
+                                filter: "blur(40px)",
+                              }}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <motion.div
+                      className="relative h-1/2 overflow-hidden "
+                      variants={{
+                        rest: { y: 0 },
+                        hover: { y: -20 },
+                      }}
+                    >
+                      <motion.img
+                        src={product.productImg}
+                        className="w-full h-full object-contain"
+                        alt={product.productName}
+                        loading="lazy"
+                        variants={imageHover}
+                        transition={{ duration: 0.5 }}
+                      />
+                    </motion.div>
+
+                    <motion.div
+                      className="relative h-1/2 p-6 flex flex-col"
+                      variants={{
+                        rest: { y: 0 },
+                        hover: { y: -30 },
+                      }}
+                    >
+                      <motion.h3
+                        className={`text-xl font-bold ${productCardOptions.textColor} mb-3`}
+                        initial={{ textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
+                        whileHover={{
+                          textShadow: "0 5px 15px rgba(0,0,0,0.2)",
+                          transition: { duration: 0.3 },
+                        }}
+                      >
+                        {product.productName}
+                      </motion.h3>
+                      <motion.p
+                        className={`${productCardOptions.descriptionColor} mb-6 relative`}
+                        whileHover={{
+                          color: "#6497b1",
+                          transition: { duration: 0.2 },
+                        }}
+                      >
+                        {product.productDescription}
+                        <motion.span
+                          className="absolute bottom-0 left-0 h-0.5 bg-blue-500"
+                          initial={{ width: 0 }}
+                          whileHover={{ width: "100%" }}
+                          transition={{ duration: 0.4 }}
+                        />
+                      </motion.p>
+                    </motion.div>
+
+                    {product.isNew && <ProductBadge type="new" />}
+                    {product.isFeatured && <ProductBadge type="featured" />}
+                    {product.isBestSeller && <ProductBadge type="bestSeller" />}
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </motion.section>
+        ))}
       </div>
     </motion.div>
   );

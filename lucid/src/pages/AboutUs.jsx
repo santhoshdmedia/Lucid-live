@@ -245,15 +245,8 @@ const AboutUs = () => {
               variants={itemVariants}
               className="text-[#005b96] text-lg leading-relaxed mb-2 indent-8 text-justify"
             >
-              Lucid Petro Chemical is a dynamic and fast-growing name in India’s
-              lubricant manufacturing landscape. Established in 2016, we began
-              our journey with a clear vision to deliver high-quality,
-              high-performance lubrication solutions for industries and
-              automotive applications. Starting with calcium-based greases, our
-              dedication to excellence and innovation allowed us to rapidly
-              expand our product portfolio to include advanced engine oils,
-              lithium-based greases, and high-temperature specialty lubricants
-              by 2023.
+             Founded in 2016, Lucid Petrochem was built on a single guiding principle – Lucid means Clarity. With this clarity of vision, we set out to create lubricants and greases that deliver Pure Clarity and Premium Protection to every engine and machine they serve.
+             We began our journey with the manufacturing of calcium-based greases, and today, Lucid Petrochem has evolved into a trusted name in automotive lubricants and lithium complex greases. Backed by a state-of-the-art toll blending unit in Thuraiyur, Tamil Nadu, we combine modern technology, stringent quality checks, and a passion for innovation to craft products that meet the highest global standards.
             </motion.p>
             <motion.p
               variants={itemVariants}
@@ -283,7 +276,7 @@ const AboutUs = () => {
               variants={itemVariants}
               className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#034a9a] mb-4 text-center lg:text-left"
             >
-              Management
+              Leadership
             </motion.h2>
 
             <motion.p
@@ -293,7 +286,7 @@ const AboutUs = () => {
               <span className="bg-gradient-to-r from-blue-800 to-indigo-900 text-transparent bg-clip-text font-bold">
                 Managing Partner:
               </span>{" "}
-              C. Venkatesan
+               Mr. C. Venkatesan, His broad vision and out-of-the-box thinkinghave been instrumental in positioning Lucid Petrochem as a brand that looks beyond the ordinary.
             </motion.p>
 
             <motion.p
@@ -303,7 +296,7 @@ const AboutUs = () => {
               <span className="bg-gradient-to-r from-blue-800 to-indigo-900 text-transparent bg-clip-text font-bold">
                 Partner:
               </span>{" "}
-              V. Nithiya
+               Mrs. V. Nithya, Providing strength through operational excellence and governance, ensuring every step reflects our values.
             </motion.p>
             <motion.blockquote
               variants={itemVariants}
@@ -512,13 +505,10 @@ const AboutUs = () => {
             <div className="p-6 flex flex-col items-center text-justify h-full">
               <TbTargetArrow className="text-6xl text-[#034a9a] mb-4 transition-colors" />
               <h3 className="text-xl font-semibold mb-2 text-[#034a9a]">
-                Vision
+               Our Vision
               </h3>
               <p className="text-[#005b96]">
-                To become India’s most respected and preferred private-label
-                manufacturer of lubricants, synthetic greases, and specialty
-                oils — a company that stands for trust, technology, and total
-                performance.
+                To be recognized as a clear choice in lubricants and greases, delivering clarity, protection, and performance across every industry and every journey.
               </p>
             </div>
           </motion.div>
@@ -533,16 +523,20 @@ const AboutUs = () => {
             className="glass-card group hover:scale-[1.02] transition-all duration-300"
           >
             <div className="p-6 flex flex-col items-center text-justify h-full">
-              <FaEye className="text-6xl text-[#034a9a] mb-4 transition-colors" />
-              <h3 className="text-xl font-semibold mb-2 text-[#034a9a]">
-                Mission
-              </h3>
-              <p className="text-[#005b96]">
-                To empower industries and vehicles across India and beyond with
-                superior lubrication solutions that optimize performance, reduce
-                downtime, and support a greener future.
-              </p>
-            </div>
+  <FaEye className="text-6xl text-[#034a9a] mb-4 transition-colors" />
+  <h3 className="text-xl font-semibold mb-2 text-[#034a9a]">
+    Our Mission
+  </h3>
+  <p className="text-[#005b96]">
+    Pure Clarity: Bring transparency, innovation, and consistency into everything we do.
+    <br /><br />
+    Premium Protection: Engineer lubricants and greases that protect with unmatched reliability and efficiency.
+    <br /><br />
+    Stronger Together: Build enduring partnerships with distributors, dealers, and customers by aligning growth with trust.
+    <br /><br />
+    At Lucid Petrochem, we don't just manufacture lubricants — we craft confidence for every mile, every machine, and every movement forward.
+  </p>
+</div>
           </motion.div>
 
           {/* Values Card */}
