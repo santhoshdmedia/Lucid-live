@@ -393,7 +393,7 @@ export const ProductLayout = ({
   // Product Card Component
   const ProductCard = ({ product }) => (
     <motion.div
-      className="group relative h-full flex flex-col justify-between rounded-3xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 shadow-2xl hover:shadow-3xl border-2 border-white/20"
+      className="group relative h-fit rounded-3xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 shadow-2xl hover:shadow-3xl border-2 border-white/20"
       initial="rest"
       whileHover="hover"
       variants={cardVariants}
@@ -438,7 +438,6 @@ export const ProductLayout = ({
           </div>
         </div>
       )}
-
 
       {/* Product image */}
       <motion.div className="relative h-48 overflow-hidden">

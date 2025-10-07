@@ -72,12 +72,12 @@ export const Navbar = () => {
 
   return (
     <header className="bg-[#034a9a] text-white sticky top-0 z-50 shadow-md">
-       <nav className=" mx-auto px-4 sm:px-6 lg:px-8 py-2 pt-4 overflow-visible h-20">
-        <div className="flex items-start justify-between">
+       <nav className=" mx-auto px-4 sm:px-6 lg:px-8 py-2 pt-4 overflow-visible h-36S">
+        <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
             to="/"
-            className="flex-shrink-0 flex items-center focus:outline-none   rounded-full bg-[#034a9a] p-2"
+            className="flex-shrink-0 flex items-center focus:outline-none   rounded-full  p-2"
             aria-label="Home"
             onClick={closeAllDropdowns}
           >
@@ -89,7 +89,7 @@ export const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-1 h-full">
             {navItems.map((item) =>
               item.subItems ? (
                 <div

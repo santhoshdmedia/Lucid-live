@@ -238,7 +238,7 @@ const AboutUs = () => {
                 {" "}
                 Lucid Petro Chemical
               </span>{" "}
-              
+              – Redefining Performance & Precision Since 2016
             </motion.h2>
 
             <motion.p
@@ -298,9 +298,34 @@ const AboutUs = () => {
               </span>{" "}
                Mrs. V. Nithya, Providing strength through operational excellence and governance, ensuring every step reflects our values.
             </motion.p>
-            
-           
-            
+            <motion.blockquote
+              variants={itemVariants}
+              className="text-[#005b96] text-lg leading-relaxed mb-2  text-justify"
+            >
+              “A good leadership creates a great team.”
+            </motion.blockquote>
+            <motion.p
+              variants={itemVariants}
+              className="text-[#005b96] text-lg leading-relaxed mb-2  text-justify"
+            >
+              Founded in 2016, Lucid Petrochemical has quickly emerged as a
+              reliable name in the chemical and lubricant industry. The company
+              is driven by a commitment to quality, innovation, and customer
+              satisfaction.
+            </motion.p>
+            <motion.p
+              variants={itemVariants}
+              className="text-[#005b96] text-lg leading-relaxed mb-2  text-justify"
+            >
+              At the core of this growth are the managing partners, Mr. C.
+              Venkatesan and Ms. V. Nithiya, whose leadership, vision, and
+              commitment continue to shape the future of the company. Mr. C.
+              Venkatesan provides strategic direction and oversees the company’s
+              expansion, quality standards, and global outreach. Ms. V. Nithiya
+              plays a vital role in business development, innovation, and
+              operational excellence, ensuring the company’s smooth and stable
+              progress.
+            </motion.p>
           </motion.div>
           {/* Owner Image */}
           <motion.div variants={slideInFromLeft} className="w-full lg:w-1/2">
